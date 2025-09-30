@@ -7,7 +7,7 @@ type NavbarProps = {
 };
 
 export default function Navbar({
-    logo = <span className="text-xl font-bold text-red-600">TOYOTA</span>,
+    
     links = [
         { id: "home", label: "Home", href: "#" },
         { id: "about", label: "About", href: "#about" },
@@ -20,11 +20,11 @@ export default function Navbar({
     return (
         <header className="bg-white shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16">
+                <div className="flex justify-between items-center h-24">
                     <div className="flex items-center">
                         <a href="#" className="inline-flex items-center">
-                            <img src="logo.png" alt="menu" className="inline-flex  h-30 h-20" />
-                            {logo}
+                            <img src="logo2.png" alt="menu" className="inline-flex  h-32 h-24" />
+                            
                         </a>
                     </div>
                     <nav className="hidden md:flex space-x-6 items-center">
