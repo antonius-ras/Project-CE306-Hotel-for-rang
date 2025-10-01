@@ -6,7 +6,7 @@ import { ProductCard } from './ProductCard';
 const products = [
   {
     id: 1,
-    imageUrl: 'https://theness.com/neurologicablog/wp-content/uploads/sites/3/2020/04/crew-dragon.jpg',
+    imageUrl: 'hotel1.png',
     title: 'space x',
     description: 'ยานอวกาศ น้ำหนักเบาประหยัดน้ำมันสามารถเดินทางได้ไกลถึง 10 ปีแสง',
     price: 110000000000,
