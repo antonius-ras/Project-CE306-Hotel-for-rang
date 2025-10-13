@@ -35,7 +35,7 @@ const Home = () => {
             imageUrl={p.imageUrl}
             title={p.title}
             description={p.description}
-            price={p.pricePerNight} // 💡 ใช้ pricePerNight เป็นราคา
+            amenities={p.amenities}
             id={p.id} 
             onNavigateToDetails={handleNavigateToDetails} 
           />
@@ -49,7 +49,7 @@ const Home = () => {
 function App() {
   return (
     <Router> 
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-white">
         <Navbar/>
         
         <Routes>
