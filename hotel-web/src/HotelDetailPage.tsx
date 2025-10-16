@@ -77,7 +77,23 @@ export const MOCK_HOTEL_DATA = {
             { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
         ],
     },
+    '6': {
+        id: '6',
+        title: 'Phuket',
+        location: 'ภูเก็ต',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
 };
+
 
 const HotelDetailPage: React.FC = () => {
     const { hotelId } = useParams<{ hotelId: string }>();
