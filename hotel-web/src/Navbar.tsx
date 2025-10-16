@@ -23,7 +23,7 @@ export default function Navbar({
                 <div className="flex justify-between items-center h-24">
                     <div className="flex items-center">
                         <a href="#" className="inline-flex items-center">
-                            <img src="logo2.png" alt="menu" className="inline-flex  h-32 h-24" />
+                            <img src="logo_color.png" alt="menu" className="inline-flex  h-32 h-24" />
                             
                         </a>
                     </div>
