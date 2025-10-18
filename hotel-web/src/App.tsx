@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import { ProductCard } from './ProductCard';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'; 
 import HotelDetailPage, { MOCK_HOTEL_DATA } from './HotelDetailPage'; // 💡 นำเข้า MOCK_HOTEL_DATA ที่ export ออกมา
+// import Slider from './components/Slider'
 
 // 💡 ตัวแปร products ถูกลบออกแล้ว
 
@@ -45,18 +46,20 @@ const Home = () => {
   );
 };
 
-
+// Navbar//
 function App() {
   return (
     <Router> 
       <div className="min-h-screen bg-white">
         <Navbar/>
-        
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/booking/:hotelId" element={<HotelDetailPage />} />
         </Routes>
 
+        {/* <Slider/> */}
+        
       </div>
     </Router>
   );

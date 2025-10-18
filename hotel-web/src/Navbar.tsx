@@ -24,7 +24,6 @@ export default function Navbar({
                     <div className="flex items-center">
                         <a href="#" className="inline-flex items-center">
                             <img src="logo_color.png" alt="menu" className="inline-flex  h-32 h-24" />
-                            
                         </a>
                     </div>
                     <nav className="hidden md:flex space-x-6 items-center">
@@ -52,6 +51,19 @@ export default function Navbar({
                     ))}
                 </div>
             </div>
+            
+            {/* Search */}
+            <div className="inline-flex items-center px-5 py-3 gap-3 rounded-full shadow-lg text-black bg-gray-100 ">
+                    <input className="text-black bg-gray-100" 
+                        type="text"
+                    />
+                    <button 
+                        type= "submit" 
+                        className="px-5 py-2 gap-3 rounded-full shadow-lg text-black bg-green-500">
+                        Search
+                    </button>
+            </div>
+
         </header>
     );
 };
