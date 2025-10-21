@@ -3,8 +3,8 @@ import React from "react";
 export default function Slider () {
     const places = [
     {name:"Bangkok", image:"./Places/bangkok.webp"},
-    {name:"Phuket", image:"./Places/Phuket.jpeg"},
-    {name:"Phuket", image:"./Places/Phuket.jpeg"},
+    {name:"Chonburi", image:"./Places/Chonburi.jpg"},
+    {name:"Chiang Mai", image:"./Places/ChiangMai.webp"},
     {name:"Phuket", image:"./Places/Phuket.jpeg"}
 ];
     return (
