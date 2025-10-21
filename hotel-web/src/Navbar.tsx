@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-type NavLink = { id: string; label: string; href: string };
+type NavLink = { 
+        id:string
+        label:string;
+        href:string 
+};
+
 type NavbarProps = {
     logo?: React.ReactNode;
     links?: NavLink[];
