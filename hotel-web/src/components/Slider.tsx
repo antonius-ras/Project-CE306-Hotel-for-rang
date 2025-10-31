@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Slider () {
 
@@ -8,11 +9,13 @@ export default function Slider () {
         path:string
     }
 
+    const navigate = useNavigate();
+
     const places: Places[] =[
-    {name:"Bangkok", image:"./Places/Bangkok.webp", path: "/Bangkok" },
-    {name:"Chonburi", image:"./Places/Chonburi.jpg", path: "/Bangkok"},
-    {name:"Chiang Mai", image:"./Places/ChiangMai.webp", path: "/Bangkok"},
-    {name:"Phuket", image:"./Places/Phuket.jpeg", path: "/Bangkok"},
+    {name:"Bangkok", image:"./Places/Bangkok.webp", path: "/Hotel_Bangkok" },
+    {name:"Chonburi", image:"./Places/Chonburi.jpg", path: "/Hotel_Chonburi"},
+    {name:"Chiang Mai", image:"./Places/ChiangMai.webp", path: "/Hotel_ChiangMai"},
+    {name:"Phuket", image:"./Places/Phuket.jpeg", path: "/Hotel_Phuket"},
     {name:"Ayutthaya", image:"./Places/Ayutthaya.png", path: "/Bangkok" },
     {name:"Kanchanaburi", image:"./Places/Kanchanaburi.webp", path: "/Bangkok" },
     {name:"Chiang Rai", image:"./Places/ChiangRai.jpg", path: "/Bangkok" },
@@ -23,9 +26,9 @@ export default function Slider () {
             <div className="flex flex-row gap-8 max-w-6xl overflow-x-auto px-4">
                 {places.map((place, index) =>(
                     <button key={index} 
-                    // onClick={}
+                    onClick={() => navigate(place.path)}
                     className="relative w-64 h-64 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-
+                    
                         <img 
                         src={place.image} 
                         alt={place.image} 

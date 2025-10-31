@@ -4,7 +4,12 @@ import { ProductCard } from './ProductCard';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'; 
 import HotelDetailPage, { MOCK_HOTEL_DATA } from './HotelDetailPage'; // 💡 นำเข้า MOCK_HOTEL_DATA ที่ export ออกมา
 import Slider from './components/Slider'
-import Bangkok from "./components/Bangkok"
+import Bangkok from "./components/Hotel_Province/Hotel_Bangkok"
+import Chonburi from './components/Hotel_Province/Hotel_Chonburi';
+import ChiangMai from './components/Hotel_Province/Hotel_ChiangMai'
+import Phuket from './components/Hotel_Province/Hotel_Phuket'
+
+
 
 
 
@@ -50,7 +55,7 @@ const Home = () => {
 };
 
 // Navbar//
-function App() {
+export default function App() {
   return (
     <Router> 
       <div className="min-h-screen bg-white">
@@ -58,10 +63,16 @@ function App() {
 
         <Slider/>
 
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/booking/:hotelId" element={<HotelDetailPage />} />
+
+
+        <Route path="/" element={<Slider />} />
+        <Route path="/Hotel_Bangkok" element={<Bangkok />} />
+        <Route path="/Hotel_Chonburi" element={<Chonburi />} />
+        <Route path="/Hotel_ChiangMai" element={<ChiangMai />} />
+        <Route path="/Hotel_Phuket" element={<Phuket />} />
         </Routes>
 
       </div>
@@ -70,4 +81,9 @@ function App() {
   );
 }
 
-export default App
+
+
+
+
+
+
