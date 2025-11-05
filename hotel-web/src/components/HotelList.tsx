@@ -48,7 +48,8 @@ const hotelData: Record<string,{id:string, name:string, image:string}[] > = {
     ]
 }
 
-
+    const hotels = hotelData[provinceName as keyof typeof hotelData] || [];
+    
     const handleSelectHotel = (hotelId: string) => {
     navigate(`/hotel/${hotelId}`);
 };
