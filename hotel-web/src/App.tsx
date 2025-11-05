@@ -3,11 +3,8 @@ import Navbar from './Navbar';
 import { ProductCard } from './ProductCard';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'; 
 import HotelDetailPage, { MOCK_HOTEL_DATA } from './HotelDetailPage'; // 💡 นำเข้า MOCK_HOTEL_DATA ที่ export ออกมา
-import Slider from './components/Slider'
-import Bangkok from "./components/Hotel_Province/Hotel_Bangkok"
-import Chonburi from './components/Hotel_Province/Hotel_Chonburi';
-import ChiangMai from './components/Hotel_Province/Hotel_ChiangMai'
-import Phuket from './components/Hotel_Province/Hotel_Phuket'
+import ProvinceList from './components/ProvinceList'
+import HotelList from './components/HotelList'
 
 
 
@@ -61,18 +58,17 @@ export default function App() {
       <div className="min-h-screen bg-white">
         <Navbar/>
 
-        <Slider/>
+        <ProvinceList/>
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/booking/:hotelId" element={<HotelDetailPage />} />
 
-
-        <Route path="/" element={<Slider />} />
-        <Route path="/Hotel_Bangkok" element={<Bangkok />} />
-        <Route path="/Hotel_Chonburi" element={<Chonburi />} />
-        <Route path="/Hotel_ChiangMai" element={<ChiangMai />} />
-        <Route path="/Hotel_Phuket" element={<Phuket />} />
+        {/* เลือกจังหวัด */}
+        <Route path="/" element={<ProvinceList />} />
+        
+        {/* เลือกโรมแรมในจังหวัด */}
+        <Route path="/province/:provinceName" element={<HotelList />} />
         </Routes>
 
       </div>
