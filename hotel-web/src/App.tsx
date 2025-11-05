@@ -66,8 +66,8 @@ export default function App() {
 
         {/* เลือกจังหวัด */}
         <Route path="/" element={<ProvinceList />} />
-        
-        {/* เลือกโรมแรมในจังหวัด */}
+
+        {/* เลือกโรมแรม */}
         <Route path="/province/:provinceName" element={<HotelList />} />
         </Routes>
 

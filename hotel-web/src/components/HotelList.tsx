@@ -48,15 +48,23 @@ const hotelData: Record<string,{id:string, name:string, image:string}[] > = {
     ]
 }
 
-    const hotels = hotelData[provinceName as keyof typeof hotelData] || [];
-    
+    const hotels = hotelData[provinceName as keyof typeof hotelData] ?? [];
+
     const handleSelectHotel = (hotelId: string) => {
     navigate(`/hotel/${hotelId}`);
 };
 
     return(
         <div className="p-10 text-center bg-gray-50 min-h-screen">
-            <h1>โรงแรม{provinceName}</h1>
+            <h1 className="text-black">โรงแรม{provinceName}</h1>
+            {/* สไลด์ */}
+            <div className="mb-8 max-w-4xl mx-auto">
+                <img
+                    src=""
+                    alt="Bangkok"
+                    className="w-full h-80 object-cover rounded-lg shadow-md"/>
+            </div>
+            {/* การ์ดโรงแรม */}
             <div className="flex justify-center gap-8">
                 {hotels.map((h) =>(
                     <button
