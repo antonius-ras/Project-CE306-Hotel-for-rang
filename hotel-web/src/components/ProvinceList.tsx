@@ -10,7 +10,7 @@ export default function ProvinceList () {
     }
 
     const provinces: province[] =[
-    {name:"Bangkok", image:"./Provinces/bangkok.webp"},
+    {name:"Bangkok", image:"./Provinces/Bangkok.webp"},
     {name:"Chonburi", image:"./Provinces/Chonburi.jpg"},
     {name:"ChiangMai", image:"./Provinces/ChiangMai.webp"},
     {name:"Phuket", image:"./Provinces/Phuket.jpeg"},
