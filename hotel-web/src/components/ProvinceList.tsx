@@ -10,14 +10,14 @@ export default function ProvinceList () {
     }
 
     const provinces: province[] =[
-    {name:"Bangkok", image:"./Places/Bangkok.webp"},
-    {name:"Chonburi", image:"./Places/Chonburi.jpg"},
-    {name:"ChiangMai", image:"./Places/ChiangMai.webp"},
-    {name:"Phuket", image:"./Places/Phuket.jpeg"},
-    {name:"Ayutthaya", image:"./Places/Ayutthaya.png"},
-    {name:"Kanchanaburi", image:"./Places/Kanchanaburi.webp"},
-    {name:"ChiangRai", image:"./Places/ChiangRai.jpg"},
-    {name:"Chachoengsao", image:"./Places/Chachoengsao.jpg"}
+    {name:"Bangkok", image:"./Provinces/bangkok.webp"},
+    {name:"Chonburi", image:"./Provinces/Chonburi.jpg"},
+    {name:"ChiangMai", image:"./Provinces/ChiangMai.webp"},
+    {name:"Phuket", image:"./Provinces/Phuket.jpeg"},
+    {name:"Ayutthaya", image:"./Provinces/Ayutthaya.png"},
+    {name:"Kanchanaburi", image:"./Provinces/Kanchanaburi.webp"},
+    {name:"ChiangRai", image:"./Provinces/ChiangRai.jpg"},
+    {name:"Chachoengsao", image:"./Provinces/Chachoengsao.jpg"}
 ];
     const handleSelectProvince = (provinceName: string) => {
         navigate(`/province/${provinceName}`);
