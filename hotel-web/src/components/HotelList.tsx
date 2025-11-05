@@ -7,7 +7,7 @@ export default function HotelList() {
 
 const hotelData: Record<string,{id:string, name:string, image:string}[] > = { 
     Bangkok: [
-        {id:"", name:"", image:""},
+        {id:"bkk-1", name:"Yello Rooms Hotel", image:"/Bangkok/Bangkok_Hotel/yelloroomshotel_1.jpg"},
         {id:"", name:"", image:""},
         {id:"", name:"", image:""}
     ],
@@ -56,7 +56,7 @@ const hotelData: Record<string,{id:string, name:string, image:string}[] > = {
 
     return(
         <div className="p-10 text-center bg-gray-50 min-h-screen">
-            <h1 className="text-black">โรงแรม{provinceName}</h1>
+            <h1 className="text-black">Hotel{provinceName}</h1>
             {/* สไลด์ */}
             <div className="mb-8 max-w-4xl mx-auto">
                 <img
@@ -71,14 +71,18 @@ const hotelData: Record<string,{id:string, name:string, image:string}[] > = {
                         key={h.id}
                         onClick={() => handleSelectHotel(h.id)}
                         className="cursor-pointer hover:scale-105 transition-transform duration-300 bg-white rounded-xl shadow-md p-4 w-72">
-                    <img
-                        src=""
-                        alt=""
+                    <img 
+                        src={h.image}
+                        alt={h.name}
                         className=""/>
                     <h2 className="text-black mt-3 text-lg font-semibold">{h.name}</h2>
                     </button>
                 ))}
             </div>
+            <button onClick={() => navigate(-1)}
+                    className="mb-6 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg shadow transition duration-200">
+                Back
+            </button>
         </div>
     )
 }
