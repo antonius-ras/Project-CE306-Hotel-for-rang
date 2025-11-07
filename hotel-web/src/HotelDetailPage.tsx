@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+
+export const HOTEL_DATA = [
+    {name:"Bangkok", image:"./Provinces/Bangkok.webp"},
+    {name:"Chonburi", image:"./Provinces/Chonburi.jpg"},
+    {name:"ChiangMai", image:"./Provinces/ChiangMai.webp"},
+    {name:"Phuket", image:"./Provinces/Phuket.jpeg"},
+    {name:"Ayutthaya", image:"./Provinces/Ayutthaya.png"},
+    {name:"Kanchanaburi", image:"./Provinces/Kanchanaburi.webp"},
+    {name:"ChiangRai", image:"./Provinces/ChiangRai.jpg"},
+    {name:"Chachoengsao", image:"./Provinces/Chachoengsao.jpg"}
+]; 
 export const MOCK_HOTEL_DATA = {
     '1': {
         id: '1',

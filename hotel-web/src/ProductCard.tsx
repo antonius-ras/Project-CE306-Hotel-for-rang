@@ -4,6 +4,7 @@ type ProductCardProps = {
     id: string;
     imageUrl: string;
     title: string;
+    location: string;
     description: string;
     amenities: string[];
     onNavigateToDetails: (hotelId: string) => void;
@@ -13,6 +14,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     id,
     imageUrl,
     title,
+    location,
     description,
     amenities,
     onNavigateToDetails
@@ -37,7 +39,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 >
                     {title}
                 </h3>
-
+                <p className="text-gray-500 text-sm mb-2">📍 {location}</p>
                 {/* ✅ แก้ส่วนนี้ให้ map amenities */}
                 <div className="flex flex-wrap gap-2 mb-2">
                     {amenities.map((item, index) => (
