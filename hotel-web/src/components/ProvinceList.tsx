@@ -25,7 +25,7 @@ export default function ProvinceList () {
 
     return (
         <div className="w-full flex justify-center bg-white py-10">
-            <div className="flex flex-row gap-8 max-w-6xl overflow-x-auto px-4">
+            <div className="flex flex-row gap-8 max-w-6xl overflow-x-auto px-4 light-scrollbar">
                 {provinces.map((p) =>(
                     <button 
                         key={p.name} 

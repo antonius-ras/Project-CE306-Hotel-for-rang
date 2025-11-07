@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CiGrid2H,CiSearch } from "react-icons/ci";
+import { HiMenu,HiSearch } from "react-icons/hi";
 
 type NavLink = {
     id: string
@@ -35,7 +35,7 @@ export default function Navbar({
                 className="absolute right-0 top-0 h-full px-4 rounded-r-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
             >
                 {/* ไอคอนค้นหา (SVG) */}
-                <CiSearch />
+                <HiSearch />
             </button>
         </div>
     );
@@ -46,7 +46,7 @@ export default function Navbar({
                 <div className="flex justify-between items-center h-24">
                     {/* Logo */}
                     <div className="flex items-center">
-                        <a href="#" className="inline-flex items-center">
+                        <a href="/" className="inline-flex items-center">
                             <img src="logo_color.png" alt="menu" className="inline-flex  h-32 h-24" />
                             
                         </a>
@@ -70,8 +70,8 @@ export default function Navbar({
 
                         {/* Mobile Menu Button */}
                         <div className="md:hidden">
-                            <button aria-controls="mobile-menu" onClick={() => setIsOpen((s) => !s)} className="p-2 bg-blue-600 rounded-md ">
-                                <CiGrid2H />
+                            <button aria-controls="mobile-menu" onClick={() => setIsOpen((s) => !s)} className="p-2 rounded-md ">
+                                <HiMenu className="text-gray-700 text-2xl"/>
                             </button>
                         </div>
                     </div>
