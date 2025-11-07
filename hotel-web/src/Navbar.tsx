@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CiGrid2H,CiSearch } from "react-icons/ci";
 
 type NavLink = {
     id: string
@@ -34,9 +35,7 @@ export default function Navbar({
                 className="absolute right-0 top-0 h-full px-4 rounded-r-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
             >
                 {/* ไอคอนค้นหา (SVG) */}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                </svg>
+                <CiSearch />
             </button>
         </div>
     );
@@ -49,6 +48,7 @@ export default function Navbar({
                     <div className="flex items-center">
                         <a href="#" className="inline-flex items-center">
                             <img src="logo_color.png" alt="menu" className="inline-flex  h-32 h-24" />
+                            
                         </a>
                     </div>
                     
@@ -70,8 +70,8 @@ export default function Navbar({
 
                         {/* Mobile Menu Button */}
                         <div className="md:hidden">
-                            <button aria-controls="mobile-menu" onClick={() => setIsOpen((s) => !s)} className="p-2 rounded-md ">
-                                <img src="Logo.png" alt="menu" className="w-6 h-6" />
+                            <button aria-controls="mobile-menu" onClick={() => setIsOpen((s) => !s)} className="p-2 bg-blue-600 rounded-md ">
+                                <CiGrid2H />
                             </button>
                         </div>
                     </div>
