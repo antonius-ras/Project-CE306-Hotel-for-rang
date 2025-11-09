@@ -31,7 +31,7 @@ const Home = () => {
         <img src="banner.png" alt="Banner" className="w-full h-64 object-cover rounded-lg mb-4" />
         <div className="mb-10">
     <h2 className="flex text-3xl font-bold text-gray-800 mb-3">
-         ค้นหาที่พักที่สมบูรณ์แบบ
+          ค้นหาที่พักที่สมบูรณ์แบบ
     </h2>
     <p className="text-gray-600 text-base max-w-3xl">
         ตั้งแต่โรงแรมหรู 5 ดาวใจกลางเมืองที่มองเห็นวิวตึกระฟ้า ไปจนถึงพูลวิลล่าส่วนตัวริมชายหาดให้คุณได้ดื่มด่ำกับความเป็นส่วนตัว หรือโฮมสเตย์บรรยากาศอบอุ่นท่ามกลางขุนเขา... เรามีตัวเลือกที่พักที่ตอบโจทย์ทุกไลฟ์สไตล์และงบประมาณของคุณ ค้นหาและกรองตัวเลือกได้ง่ายๆ ทั้งตามสถานที่ตั้ง, ราคา, สิ่งอำนวยความสะดวก (เช่น สระว่ายน้ำ, ฟิตเนส, หรือที่พักที่ต้อนรับสัตว์เลี้ยง) เพื่อให้คุณได้พบกับ "บ้าน" ที่สมบูรณ์แบบที่สุดสำหรับการพักผ่อนครั้งนี้
@@ -79,8 +79,14 @@ const FilterHotel =() => {
 
         // เงื่อนไขการค้นหา (เผื่อข้อมูลเป็นภาษาไทย)
         if (province === 'bangkok') return location.includes('bangkok') || location.includes('กรุงเทพ');
-        if (province === 'phuket') return location.includes('phuket') || location.includes('ภูเก็ต');
+        if (province === 'chonburi') return location.includes('chonburi') || location.includes('ชลบุรี');
         if (province === 'chiangmai') return location.includes('chiangmai') || location.includes('เชียงใหม่');
+        if (province === 'phuket') return location.includes('phuket') || location.includes('ภูเก็ต');
+        if (province === 'ayutthaya') return location.includes('ayutthaya') || location.includes('อยุธยา');
+        if (province === 'kanchanaburi') return location.includes('kanchanaburi') || location.includes('กาญจณบุรี');
+        if (province === 'chiangrai') return location.includes('chiangrai') || location.includes('เชียงราย');
+        if (province === 'chachoengsao') return location.includes('chachoengsao') || location.includes('ฉะเชิงเทรา');
+
         // จังหวัดอื่นๆ ที่ชื่อตรงตัว
         return location.includes(province);
     });

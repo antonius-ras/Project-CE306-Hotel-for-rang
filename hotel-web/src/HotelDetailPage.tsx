@@ -13,6 +13,7 @@ export const HOTEL_DATA = [
     {name:"Chachoengsao", image:"./Provinces/Chachoengsao.jpg"}
 ]; 
 export const MOCK_HOTEL_DATA = {
+    // Bangkok
     '1': {
         id: '1',
         title: 'Holiday Inn Bangkok',
@@ -33,8 +34,7 @@ export const MOCK_HOTEL_DATA = {
         title: 'City Center Tower',
         location: 'เพลินจิต, กรุงเทพฯ',
         rating: 4.5,
-        description:
-            'ที่พักทันสมัยใจกลางย่านธุรกิจ การออกแบบเน้นความหรูหราและเรียบง่าย เหมาะสำหรับนักเดินทางที่ต้องการความสงบและสะดวกสบาย',
+        description:'ที่พักทันสมัยใจกลางย่านธุรกิจ การออกแบบเน้นความหรูหราและเรียบง่าย เหมาะสำหรับนักเดินทางที่ต้องการความสงบและสะดวกสบาย',
         imageUrl: '/hotel2/hotel2.png',
         amenities: ['Free WiFi', 'Breakfast Included', 'Business Center', 'Rooftop Bar'],
         numberOfReviews: 320,
@@ -47,7 +47,7 @@ export const MOCK_HOTEL_DATA = {
     '3': {
         id: '3',
         title: 'Seaside Serenity Resort',
-        location: 'หัวหิน, ประจวบคีรีขันธ์',
+        location: 'กรุงเทพ',
         rating: 4.9,
         description: 'รีสอร์ทริมทะเลที่เงียบสงบ พร้อมวิวทะเลอันงดงามและหาดทรายขาวสะอาด',
         imageUrl: '/hotel3/hotel3.png',
@@ -58,10 +58,11 @@ export const MOCK_HOTEL_DATA = {
             { name: 'ห้องพูลวิลล่า', price: 6000 },
         ],
     },
+    // Chonburi
     '4': {
         id: '4',
         title: 'Mountain View Lodge',
-        location: 'ปาย, แม่ฮ่องสอน',
+        location: 'ชลบุรี',
         rating: 4.7,
         description:
             'ที่พักสไตล์ลอฟท์ท่ามกลางธรรมชาติ พร้อมวิวภูเขาที่สวยงามและอากาศบริสุทธิ์',
@@ -76,7 +77,7 @@ export const MOCK_HOTEL_DATA = {
     '5': {
         id: '5',
         title: 'Urban Chic Hotel',
-        location: 'สีลม, กรุงเทพฯ',
+        location: 'ชลบุรี',
         rating: 4.3,
         description:
             'โรงแรมทันสมัยในย่านใจกลางเมือง เหมาะสำหรับนักธุรกิจและนักท่องเที่ยวที่ต้องการความสะดวกสบาย',
@@ -90,6 +91,68 @@ export const MOCK_HOTEL_DATA = {
     },
     '6': {
         id: '6',
+        title: 'P',
+        location: 'ชลบุรี',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+    // ChiangMai
+        '7': {
+        id: '7',
+        title: 'ChiangMai',
+        location: 'เชียงใหม่',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+        '8': {
+        id: '8',
+        title: 'ChiangMai',
+        location: 'เชียงใหม่',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+        '9': {
+        id: '9',
+        title: 'ChiangMai',
+        location: 'เชียงใหม่',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+    // Phuket
+        '10': {
+        id: '10',
         title: 'Phuket',
         location: 'ภูเก็ต',
         rating: 5,
@@ -103,6 +166,220 @@ export const MOCK_HOTEL_DATA = {
             { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
         ],
     },
+        '11': {
+        id: '11',
+        title: 'Phuket',
+        location: 'ภูเก็ต',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+        '12': {
+        id: '12',
+        title: 'Phuket',
+        location: 'ภูเก็ต',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+    // Ayutthaya
+        '13': {
+        id: '13',
+        title: 'Ayutthaya',
+        location: 'อยุธยา',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+        '14': {
+        id: '14',
+        title: 'Ayutthaya',
+        location: 'อยุธยา',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+        '15': {
+        id: '15',
+        title: 'Ayutthaya',
+        location: 'อยุธยา',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+    // Kanchanaburi
+        '16': {
+        id: '16',
+        title: 'Kanchanaburi',
+        location: 'กาญจณบุรี',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+        '17': {
+        id: '17',
+        title: 'Kanchanaburi',
+        location: 'กาญจณบุรี',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+        '18': {
+        id: '18',
+        title: 'Kanchanaburi',
+        location: 'กาญจณบุรี',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+    // ChiangRai
+        '19': {
+        id: '19',
+        title: 'ChiangRai',
+        location: 'เชียงราย',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+        '20': {
+        id: '20',
+        title: 'ChiangRai',
+        location: 'เชียงราย',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+        '21': {
+        id: '21',
+        title: 'ChiangRai',
+        location: 'เชียงราย',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+    // Chachoengsao
+        '22': {
+        id: '22',
+        title: 'Chachoengsao',
+        location: 'ฉะเชิงเทรา',
+        rating: 5,
+        description:'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+        '23': {
+        id: '23',
+        title: 'Chachoengsao',
+        location: 'ฉะเชิงเทรา',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+        '24': {
+        id: '24',
+        title: 'Chachoengsao',
+        location: 'ฉะเชิงเทรา',
+        rating: 5,
+        description:
+            'โรงแรมภูเก็ต',
+        imageUrl: '/province/Phuket.jpeg',
+        amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
+        numberOfReviews: 150,
+        roomTypes: [
+            { name: 'ห้องมาตรฐาน', price: 3000 },
+            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+        ],
+    },
+    
 };
 
 
