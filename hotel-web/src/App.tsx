@@ -58,10 +58,6 @@ const Home = () => {
   );
 };
 
-
-
-
-
 const FilterHotel =() => {
     const navigate = useNavigate();
     // ดึงชื่อจังหวัดจาก URL (เช่น "Bangkok")
@@ -120,7 +116,6 @@ const FilterHotel =() => {
         </main>
     );
 };
-
 
 // --- App Component (ตัวจัดการ Route หลัก) ---
 export default function App() {

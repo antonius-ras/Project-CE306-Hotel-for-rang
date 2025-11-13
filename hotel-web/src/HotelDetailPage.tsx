@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 
 
 export const HOTEL_DATA = [
@@ -25,8 +25,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Life Support', 'Zero Gravity Gym', 'Advanced Telescope'],
         numberOfReviews: 5,
         roomTypes: [
-            { name: 'ห้องเตียงเดียว', price: 3000 },
-            { name: 'ห้องเตียงคู่', price: 3500 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
     '2': {
@@ -39,9 +53,21 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Free WiFi', 'Breakfast Included', 'Business Center', 'Rooftop Bar'],
         numberOfReviews: 320,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3500 },
-            { name: 'ห้องดีลักซ์', price: 4200 },
-            { name: 'ห้องสวีท', price: 5000 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel2/2b.png",                   
+                    "/hotel2/pool-hotel2.png",
+                    "/hotel2/tennis-hotel2.png"
+                    
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel2/2b.png",
+                    "/hotel2/pool-hotel2.png",
+                    "/hotel2/tennis-hotel2.png",
+                    "/hotel2/1lr.png"
+                ]
+            },
         ],
     },
     '3': {
@@ -54,8 +80,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Beach Access', 'Private Balcony', 'Swimming Pool', 'Massage'],
         numberOfReviews: 450,
         roomTypes: [
-            { name: 'ห้องริมทะเล', price: 4200 },
-            { name: 'ห้องพูลวิลล่า', price: 6000 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
     // Chonburi
@@ -70,8 +110,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Hiking Trails', 'Fireplace', 'Hot Tub', 'Free Breakfast'],
         numberOfReviews: 210,
         roomTypes: [
-            { name: 'ห้องวิวภูเขา', price: 2800 },
-            { name: 'ห้องมีระเบียง', price: 3200 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
     '5': {
@@ -85,8 +139,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
     '6': {
@@ -100,8 +168,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
     // ChiangMai
@@ -116,8 +198,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
         '8': {
@@ -131,8 +227,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
         '9': {
@@ -146,8 +256,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
     // Phuket
@@ -162,8 +286,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
         '11': {
@@ -177,8 +315,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
         '12': {
@@ -192,8 +344,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
     // Ayutthaya
@@ -208,8 +374,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
         '14': {
@@ -223,8 +403,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
         '15': {
@@ -238,8 +432,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
     // Kanchanaburi
@@ -254,8 +462,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
         '17': {
@@ -269,8 +491,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
         '18': {
@@ -284,8 +520,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
     // ChiangRai
@@ -300,8 +550,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
         '20': {
@@ -315,8 +579,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
         '21': {
@@ -330,8 +608,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
     // Chachoengsao
@@ -345,8 +637,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
         '23': {
@@ -360,8 +666,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+            {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
         '24': {
@@ -375,8 +695,22 @@ export const MOCK_HOTEL_DATA = {
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-            { name: 'ห้องมาตรฐาน', price: 3000 },
-            { name: 'ห้องเอ็กเซกคิวทีฟ', price: 3800 },
+           {
+                name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
+                    "/hotel1/1b.png",
+                    "/hotel1/1b(1).png",
+                    "/hotel1/1br.png",
+                    "/hotel1/1rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
+            { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
     
@@ -386,11 +720,13 @@ export const MOCK_HOTEL_DATA = {
 const HotelDetailPage: React.FC = () => {
     const { hotelId } = useParams<{ hotelId: string }>();
     const hotel = MOCK_HOTEL_DATA[hotelId as keyof typeof MOCK_HOTEL_DATA];
-
+    
     const [checkInDate, setCheckInDate] = useState('');
     const [checkOutDate, setCheckOutDate] = useState('');
+    const [activeImageIndex, setActiveImageIndex] = useState(0);
     const [guests, setGuests] = useState(1);
     const [selectedRoom, setSelectedRoom] = useState(0);
+    const navigate = useNavigate();
 
     if (!hotel) {
         return (
@@ -400,21 +736,45 @@ const HotelDetailPage: React.FC = () => {
         );
     }
 
+    const handleRoomTypeChange = (e: { target: { value: string; }; }) => {
+        const newRoomIndex = parseInt(e.target.value);
+        setSelectedRoom(newRoomIndex);
+        setActiveImageIndex(0); // 👈 **สำคัญ:** รีเซ็ต index รูปภาพเป็น 0 ทุกครั้งที่เปลี่ยนห้อง
+    };
+    // ฟังก์ชันสำหรับคลิกที่รูปย่อ
+    const handleThumbnailClick = (index: React.SetStateAction<number>) => {
+        setActiveImageIndex(index); // 👈 แค่ set index รูปที่ถูกคลิก
+    };
+
     const handleBookingSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const room = hotel.roomTypes[selectedRoom];
+        const selectedRoomData = hotel.roomTypes[selectedRoom];
 
-        console.log('--- ข้อมูลการจองที่ส่งออกไป ---');
-        console.log(`โรงแรม: ${hotel.title} (ID: ${hotel.id})`);
-        console.log(`ประเภทห้อง: ${room.name}`);
-        console.log(`ราคา: ${room.price}`);
-        console.log(`เช็คอิน: ${checkInDate}`);
-        console.log(`เช็คเอาท์: ${checkOutDate}`);
-        console.log(`จำนวนแขก: ${guests}`);
-        console.log('--- END ---');
+        const date1 = new Date(checkInDate);
+        const date2 = new Date(checkOutDate);
+        const diffTime = Math.abs(date2.getTime() - date1.getTime());
+        const numberOfNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+        
+        const totalPrice = selectedRoomData.price * numberOfNights;
 
-        alert(`จอง ${hotel.title} (${room.name}) เรียบร้อย!`);
+        const bookingDetails = {
+            hotelName: hotel.title,
+            room: selectedRoomData,
+            checkIn: checkInDate,
+            checkOut: checkOutDate,
+            guests: guests,
+            numberOfNights: numberOfNights,
+            totalPrice: totalPrice,
+            mainHotelImage: hotel.imageUrl // รูปหลักของโรงแรม (ภาพรวม)
+        };
+
+        navigate('/receipt', { 
+            state: { 
+                bookingData: bookingDetails 
+            } 
+        });
     };
+
 
     return (
         <div className="min-h-screen bg-gray-50 p-6 lg:p-12">
@@ -447,6 +807,27 @@ const HotelDetailPage: React.FC = () => {
                                 <span>|</span>
                                 <span>📍 {hotel.location}</span>
                             </div>
+                            <img
+                                src={hotel.roomTypes[selectedRoom].imageUrls[activeImageIndex]}
+                                alt={hotel.roomTypes[selectedRoom].name}
+                                className="w-full h-48 object-cover rounded-lg shadow-md"
+                            />
+                            {hotel.roomTypes[selectedRoom].imageUrls.length > 1 && (
+                                <div className="flex space-x-2 overflow-x-auto p-1">
+                                    {hotel.roomTypes[selectedRoom].imageUrls.map((imgUrl, index) => (
+                                        <img
+                                            key={index}
+                                            src={imgUrl}
+                                            alt={`Thumbnail ${index + 1}`}
+                                            onClick={() => handleThumbnailClick(index)} // 👈 เรียกฟังก์ชันเมื่อคลิก
+                                            className={`w-16 h-12 object-cover rounded-md cursor-pointer border-2 ${activeImageIndex === index
+                                                    ? 'border-blue-500' // สไตล์เมื่อรูปนี้ถูกเลือก
+                                                    : 'border-transparent hover:border-gray-400' // สไตล์ปกติ
+                                                }`}
+                                        />
+                                    ))}
+                                </div>
+                            )}
                         </section>
 
                         <hr />
@@ -488,7 +869,7 @@ const HotelDetailPage: React.FC = () => {
                                     <select
                                         id="roomType"
                                         value={selectedRoom}
-                                        onChange={(e) => setSelectedRoom(parseInt(e.target.value))}
+                                        onChange={handleRoomTypeChange}
                                         className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                                     >
                                         {hotel.roomTypes.map((room, index) => (
