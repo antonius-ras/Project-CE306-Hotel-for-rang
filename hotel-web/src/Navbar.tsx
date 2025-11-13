@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { HiMenu,HiSearch } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+import { HiMenu, HiSearch } from "react-icons/hi";
 
 type NavLink = {
     id: string
@@ -11,34 +12,58 @@ type NavbarProps = {
     logo?: React.ReactNode;
     links?: NavLink[];
 };
+type SearchBarProps = {
+    searchQuery: string;
+    setSearchQuery: (query: string) => void;
+    handleSearchSubmit: (e: React.FormEvent) => void;
+};
 
+// 💡 2. ย้าย SearchBar ออกมาข้างนอก
+// และกำหนด type ให้กับ props ที่รับเข้ามา (React.FC<SearchBarProps>)
+const SearchBar: React.FC<SearchBarProps> = ({
+    searchQuery,
+    setSearchQuery,
+    handleSearchSubmit
+}) => (
+    <form onSubmit={handleSearchSubmit} className="relative flex items-center w-full">
+        <input
+            className="w-full pl-5 pr-12 py-2 rounded-full shadow-md text-black bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            type="text"
+            placeholder="ค้นหาโรงแรม..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <button
+            type="submit"
+            className="absolute right-0 top-0 h-full px-4 rounded-r-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+        >
+            {/* ไอคอนค้นหา (SVG) */}
+            <HiSearch />
+        </button>
+    </form>
+);
 export default function Navbar({
 
     links = [
         { id: "home", label: "Home", href: "/" },
-        { id: "about", label: "About", href: "#about" },
         { id: "services", label: "Services", href: "#services" },
         { id: "contact", label: "Contact", href: "#contact" },
     ],
 }: NavbarProps) {
     const [isOpen, setIsOpen] = useState(false);
 
-    const SearchBar = () => (
-        <div className="relative flex items-center w-full">
-            <input 
-                className="w-full pl-5 pr-12 py-2 rounded-full shadow-md text-black bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                type="text"
-                placeholder="ค้นหาโรงแรม..."
-            />
-            <button
-                type="submit"
-                className="absolute right-0 top-0 h-full px-4 rounded-r-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
-            >
-                {/* ไอคอนค้นหา (SVG) */}
-                <HiSearch />
-            </button>
-        </div>
-    );
+
+    const [searchQuery, setSearchQuery] = useState("");
+    const navigate = useNavigate();
+
+    const handleSearchSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            navigate(`/search/${searchQuery.trim()}`);
+            setSearchQuery("");
+            setIsOpen(false);
+        }
+    };
 
     return (
         <header className="bg-white shadow-sm">
@@ -48,10 +73,10 @@ export default function Navbar({
                     <div className="flex items-center">
                         <a href="/" className="inline-flex items-center">
                             <img src="logo_color.png" alt="menu" className="inline-flex  h-32 h-24" />
-                            
+
                         </a>
                     </div>
-                    
+
                     {/* 💡 2. สร้าง Container ฝั่งขวา (เมนู + ค้นหา + ปุ่ม Mobile) */}
                     <div className="flex items-center space-x-6">
                         {/* Desktop Nav Links */}
@@ -65,13 +90,15 @@ export default function Navbar({
 
                         {/* 💡 3. Search Bar (แสดงเฉพาะจอ Desktop) */}
                         <div className="hidden md:flex">
-                            <SearchBar />
+                            <SearchBar searchQuery={searchQuery}
+                                setSearchQuery={setSearchQuery}
+                                handleSearchSubmit={handleSearchSubmit}/>
                         </div>
 
                         {/* Mobile Menu Button */}
                         <div className="md:hidden">
                             <button aria-controls="mobile-menu" onClick={() => setIsOpen((s) => !s)} className="p-2 rounded-md ">
-                                <HiMenu className="text-gray-700 text-2xl"/>
+                                <HiMenu className="text-gray-700 text-2xl" />
                             </button>
                         </div>
                     </div>
@@ -89,11 +116,13 @@ export default function Navbar({
                     ))}
                     {/* 💡 4. Search Bar (แสดงเฉพาะในเมนู Mobile) */}
                     <div className="px-3 pt-3 pb-2">
-                        <SearchBar />
+                        <SearchBar searchQuery={searchQuery}
+                                setSearchQuery={setSearchQuery}
+                                handleSearchSubmit={handleSearchSubmit}/>
                     </div>
                 </div>
             </div>
-            
+
             {/* 💡 5. ลบ Search Bar เก่าที่อยู่ท้ายสุดออกไป */}
 
         </header>

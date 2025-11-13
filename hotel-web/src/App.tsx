@@ -22,7 +22,7 @@ const Home = () => {
   // ฟังก์ชันจัดการการคลิกและนำทาง
   const handleNavigateToDetails = (hotelId: string) => {
     // นำทางไปยังเส้นทาง /booking/ ตามด้วย ID ของสินค้า
-    navigate(`/booking/${hotelId}`);
+    navigate(`/hotel/${hotelId}`);
   };
 
   return (
@@ -64,7 +64,7 @@ const FilterHotel =() => {
     const { provinceName } = useParams<{ provinceName: string }>();
 
     const handleNavigateToDetails = (hotelId: string) => {
-        navigate(`/booking/${hotelId}`);
+        navigate(`/hotel/${hotelId}`);
     };
 
     // ตรรกะการกรอง
@@ -116,7 +116,57 @@ const FilterHotel =() => {
         </main>
     );
 };
+const FilterHotelBySearch = () => {
+    const navigate = useNavigate();
+    // 💡 1a. ดึง "query" (คำค้นหา) จาก URL
+    const { query } = useParams<{ query: string }>();
 
+    const handleNavigateToDetails = (hotelId: string) => {
+        navigate(`/hotel/${hotelId}`);
+    };
+
+    // 💡 1b. ตรรกะการกรองตามคำค้นหา
+    const filteredHotels = displayProducts.filter(hotel => {
+        if (!query) return false;
+        const searchTerm = query.toLowerCase();
+
+        // ค้นหาใน: ชื่อโรงแรม, สถานที่, และรายละเอียด
+        return (
+            hotel.title.toLowerCase().includes(searchTerm) ||
+            hotel.location.toLowerCase().includes(searchTerm) ||
+            hotel.description.toLowerCase().includes(searchTerm)
+        );
+    });
+
+    return (
+        <main className="max-w-7xl mx-auto p-6">
+            <button onClick={() => navigate('/')} className="mb-6 bg-gray-100 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors">
+                &larr; กลับไปหน้าหลัก
+            </button>
+            <h1 className="text-3xl font-bold text-gray-900 mb-6">
+                ผลการค้นหาสำหรับ "{query}" ({filteredHotels.length} แห่ง)
+            </h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {filteredHotels.length > 0 ? (
+                    filteredHotels.map((p) => (
+                        <ProductCard
+                            key={`g-${p.id}`}
+                            imageUrl={p.imageUrl}
+                            title={p.title}
+                            location={p.location}
+                            description={p.description}
+                            amenities={p.amenities}
+                            id={p.id}
+                            onNavigateToDetails={handleNavigateToDetails}
+                        />
+                    ))
+                ) : (
+                    <p className="text-gray-600 col-span-3 text-center">ไม่พบโรงแรมที่ตรงกับการค้นหาของคุณ</p>
+                )}
+            </div>
+        </main>
+    );
+};
 // --- App Component (ตัวจัดการ Route หลัก) ---
 export default function App() {
   return (
@@ -128,19 +178,13 @@ export default function App() {
         
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/booking/:hotelId" element={<HotelDetailPage />} />
+          <Route path="/hotel/:hotelId" element={<HotelDetailPage />} />
           
           {/* 6. แก้ Route นี้ให้ชี้ไปที่ Component ใหม่ */}
           <Route path="/province/:provinceName" element={<FilterHotel />} />
+          <Route path="/search/:query" element={<FilterHotelBySearch />} />
         </Routes>
       </div>
     </Router>
   );
-
 }
-
-
-
-
-
-
