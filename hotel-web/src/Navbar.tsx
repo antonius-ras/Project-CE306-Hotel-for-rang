@@ -72,7 +72,7 @@ export default function Navbar({
                     {/* Logo */}
                     <div className="flex items-center">
                         <a href="/" className="inline-flex items-center">
-                            <img src="logo_color.png" alt="menu" className="inline-flex  h-32 h-24" />
+                            <img src="/logo_color.png" alt="menu" className="inline-flex  h-32 h-24" />
 
                         </a>
                     </div>
