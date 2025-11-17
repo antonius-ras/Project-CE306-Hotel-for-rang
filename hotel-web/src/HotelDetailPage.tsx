@@ -365,9 +365,9 @@ export const MOCK_HOTEL_DATA = {
     // Ayutthaya
         '13': {
         id: '13',
-        title: 'Ayutthaya',
+        title: 'Kunst Ayutthaya',
         location: 'อยุธยา',
-        rating: 5,
+        rating: 3,  
         description:
             'โรงแรมภูเก็ต',
         imageUrl: '/province/Phuket.jpeg',
@@ -394,9 +394,9 @@ export const MOCK_HOTEL_DATA = {
     },
         '14': {
         id: '14',
-        title: 'Ayutthaya',
+        title: 'Centara Ayutthaya',
         location: 'อยุธยา',
-        rating: 5,
+        rating: 4,
         description:
             'โรงแรมภูเก็ต',
         imageUrl: '/province/Phuket.jpeg',
@@ -423,7 +423,7 @@ export const MOCK_HOTEL_DATA = {
     },
         '15': {
         id: '15',
-        title: 'Ayutthaya',
+        title: 'S3 Ayutthaya Hotel',
         location: 'อยุธยา',
         rating: 5,
         description:
