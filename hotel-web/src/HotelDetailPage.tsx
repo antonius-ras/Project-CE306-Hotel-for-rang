@@ -599,7 +599,7 @@ export const MOCK_HOTEL_DATA = {
     },
         '21': {
         id: '21',
-        title: 'ChiangRai',
+        title: 'e Patta Resort & Hotel Chiang Rai',
         location: 'เชียงราย',
         rating: 5,
         description:
