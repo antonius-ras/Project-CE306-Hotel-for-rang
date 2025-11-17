@@ -453,7 +453,7 @@ export const MOCK_HOTEL_DATA = {
     // Kanchanaburi
         '16': {
         id: '16',
-        title: 'Kanchanaburi',
+        title: 'Tara Villa',
         location: 'กาญจณบุรี',
         rating: 5,
         description:
@@ -482,9 +482,9 @@ export const MOCK_HOTEL_DATA = {
     },
         '17': {
         id: '17',
-        title: 'Kanchanaburi',
+        title: 'Z9 Resort',
         location: 'กาญจณบุรี',
-        rating: 5,
+        rating: 4,
         description:
             'โรงแรมภูเก็ต',
         imageUrl: '/province/Phuket.jpeg',
