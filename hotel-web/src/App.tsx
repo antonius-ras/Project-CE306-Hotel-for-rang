@@ -12,8 +12,6 @@ const displayProducts = Object.values(MOCK_HOTEL_DATA);
 
 
 
-
-
 // 💡 สร้าง Component สำหรับหน้าแรกโดยเฉพาะ (Home Component)
 // เพื่อให้สามารถใช้ useNavigate ได้
 const Home = () => {

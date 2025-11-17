@@ -159,7 +159,7 @@ export const MOCK_HOTEL_DATA = {
     },
     '6': {
         id: '6',
-        title: 'P',
+        title: 'The Zleep Chonburi',
         location: 'ชลบุรี',
         rating: 5,
         description:
@@ -189,7 +189,7 @@ export const MOCK_HOTEL_DATA = {
     // ChiangMai
         '7': {
         id: '7',
-        title: 'ChiangMai',
+        title: 'Por Santitham',
         location: 'เชียงใหม่',
         rating: 5,
         description:
@@ -218,7 +218,7 @@ export const MOCK_HOTEL_DATA = {
     },
         '8': {
         id: '8',
-        title: 'ChiangMai',
+        title: 'Eastin Tan Hotel Chiang Mai',
         location: 'เชียงใหม่',
         rating: 5,
         description:
@@ -247,7 +247,7 @@ export const MOCK_HOTEL_DATA = {
     },
         '9': {
         id: '9',
-        title: 'ChiangMai',
+        title: 'Travelodge Nimman Hotel',
         location: 'เชียงใหม่',
         rating: 5,
         description:
@@ -272,12 +272,19 @@ export const MOCK_HOTEL_DATA = {
                     "/hotel1/1lr.png"
                 ]
             },
+                        { name: 'ห้องเตียงTree', price: 4500 , imageUrls: [
+                    "/hotel1/2b.png",
+                    "/hotel1/2b(1).png",
+                    "/hotel1/2rs.png",
+                    "/hotel1/1lr.png"
+                ]
+            },
         ],
     },
     // Phuket
         '10': {
         id: '10',
-        title: 'Phuket',
+        title: 'SHIN Arch39 Phuket Beach Front',
         location: 'ภูเก็ต',
         rating: 5,
         description:
@@ -306,7 +313,7 @@ export const MOCK_HOTEL_DATA = {
     },
         '11': {
         id: '11',
-        title: 'Phuket',
+        title: 'Royal Phuket City Hotel',
         location: 'ภูเก็ต',
         rating: 5,
         description:
@@ -335,7 +342,7 @@ export const MOCK_HOTEL_DATA = {
     },
         '12': {
         id: '12',
-        title: 'Phuket',
+        title: 'Woovo Phuket Patong',
         location: 'ภูเก็ต',
         rating: 5,
         description:
