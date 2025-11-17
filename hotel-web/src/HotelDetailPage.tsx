@@ -541,7 +541,7 @@ export const MOCK_HOTEL_DATA = {
     // ChiangRai
         '19': {
         id: '19',
-        title: 'ChiangRai',
+        title: 'Cape Dara Resort',
         location: 'เชียงราย',
         rating: 5,
         description:
@@ -570,7 +570,7 @@ export const MOCK_HOTEL_DATA = {
     },
         '20': {
         id: '20',
-        title: 'ChiangRai',
+        title: 'LK The Empress',
         location: 'เชียงราย',
         rating: 5,
         description:
@@ -629,7 +629,7 @@ export const MOCK_HOTEL_DATA = {
     // Chachoengsao
         '22': {
         id: '22',
-        title: 'Chachoengsao',
+        title: 'Grand Sappaya Hotel by Lotus Valley Golf',
         location: 'ฉะเชิงเทรา',
         rating: 5,
         description:'โรงแรมภูเก็ต',
@@ -657,9 +657,9 @@ export const MOCK_HOTEL_DATA = {
     },
         '23': {
         id: '23',
-        title: 'Chachoengsao',
+        title: 'Sirapa Resident',
         location: 'ฉะเชิงเทรา',
-        rating: 5,
+        rating: 2,
         description:
             'โรงแรมภูเก็ต',
         imageUrl: '/province/Phuket.jpeg',
@@ -686,16 +686,16 @@ export const MOCK_HOTEL_DATA = {
     },
         '24': {
         id: '24',
-        title: 'Chachoengsao',
+        title: 'The Wish Hotel',
         location: 'ฉะเชิงเทรา',
-        rating: 5,
+        rating: 3,
         description:
             'โรงแรมภูเก็ต',
         imageUrl: '/province/Phuket.jpeg',
         amenities: ['Gym', 'Rooftop Pool', 'Free WiFi', '24-hour Front Desk'],
         numberOfReviews: 150,
         roomTypes: [
-           {
+            {
                 name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
                     "/hotel1/1b.png",
                     "/hotel1/1b(1).png",
