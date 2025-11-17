@@ -511,7 +511,7 @@ export const MOCK_HOTEL_DATA = {
     },
         '18': {
         id: '18',
-        title: 'Kanchanaburi',
+        title: 'Felix River Kwai Resort ',
         location: 'กาญจณบุรี',
         rating: 5,
         description:
