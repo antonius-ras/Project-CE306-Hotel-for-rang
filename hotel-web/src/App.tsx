@@ -4,7 +4,7 @@ import { ProductCard } from './ProductCard';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useParams } from 'react-router-dom'; 
 import HotelDetailPage, { MOCK_HOTEL_DATA } from './HotelDetailPage'; // 💡 นำเข้า MOCK_HOTEL_DATA ที่ export ออกมา
 import ProvinceList from './components/ProvinceList'
-
+import ReceiptPage from './Receipt';
 
 // 💡 สร้าง array ของสินค้าที่ต้องการแสดงผลจากข้อมูล MOCK_HOTEL_DATA
 const displayProducts = Object.values(MOCK_HOTEL_DATA);
@@ -177,7 +177,7 @@ export default function App() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/hotel/:hotelId" element={<HotelDetailPage />} />
-            
+            <Route path="/receipt" element={<ReceiptPage />} />
           {/* 6. แก้ Route นี้ให้ชี้ไปที่ Component ใหม่ */}
             <Route path="/province/:provinceName" element={<FilterHotel />} />
             <Route path="/search/:query" element={<FilterHotelBySearch />} />
