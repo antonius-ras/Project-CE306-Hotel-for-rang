@@ -53,11 +53,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                     {description}
                 </p>
                 <div className="absolute bottom-4 right-4">
+                    <button onClick={handleCardClick} className="group bg-green-100 text-green-700 hover:bg-green-200  px-4 py-2 rounded-lg shadow-md text-sm font-semibold transition-all flex items-center gap-2">
 
-
-
-                    <button onClick={handleCardClick} className="group bg-green-100 text-green-700 hover:bg-green-200 px-4 py-2 rounded-lg shadow-md text-sm font-semibold transition-all flex items-center gap-2">
-                        
                         Book Now
                         <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
                     </button>
