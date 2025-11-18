@@ -9,7 +9,7 @@ const BANNERS = [
     'Banner/banner1.jpg',
     'Banner/banner2.jpg',
     'Banner/banner3.jpg',
-    'Banner/banner4.png'
+    'Banner/banner4.jpg'
 ];
 
 // 💡 สร้าง array ของสินค้าที่ต้องการแสดงผลจากข้อมูล MOCK_HOTEL_DATA
