@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { FaStar, FaMapMarkerAlt, FaCheckCircle, FaRegImages } from 'react-icons/fa'; // อย่าลืม import เพิ่มนะครับ
+import { FaStar, FaMapMarkerAlt } from 'react-icons/fa'; // อย่าลืม import เพิ่มนะครับ
 
 
 export const HOTEL_DATA = [
