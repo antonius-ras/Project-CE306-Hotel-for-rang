@@ -1,7 +1,15 @@
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProvinceList from '../components/ProvinceList';
 import { ProductCard } from '../ProductCard';
 import { MOCK_HOTEL_DATA } from '../HotelDetailPage';
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
+
+const BANNERS = [
+    'Banner/banner1.jpg',
+    'Banner/banner2.jpg',
+    'Banner/banner3.jpg',
+];
 
 // 💡 สร้าง array ของสินค้าที่ต้องการแสดงผลจากข้อมูล MOCK_HOTEL_DATA
 const displayProducts = Object.values(MOCK_HOTEL_DATA);
@@ -10,6 +18,15 @@ const displayProducts = Object.values(MOCK_HOTEL_DATA);
 // เพื่อให้สามารถใช้ useNavigate ได้
 const Home = () => {
     const navigate = useNavigate();
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    // ❗ ปรับเวลาออโต้สไลด์ถ้าต้องการ
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % BANNERS.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
 
     // ฟังก์ชันจัดการการคลิกและนำทาง
     const handleNavigateToDetails = (hotelId: string) => {
@@ -17,12 +34,44 @@ const Home = () => {
         navigate(`/hotel/${hotelId}`);
     };
 
+
     return (
         <main className="max-w-7xl mx-auto p-6">
             <section id="home" className="mb-8">
-                <img src="banner.png" alt="Banner" className="w-full h-64 object-cover rounded-lg mb-4" />
-                <div className="mb-10">
-                    <h2 className="flex font-semibold text-3xl font-bold text-gray-800 mb-3">
+                <div className="relative w-full h-64 rounded-lg overflow-hidden">
+                    {BANNERS.map((banner, index) => (
+                        <img
+                            key={banner}
+                            src={banner} // ❗ ใส่ path ของ Banner
+                            alt={`Banner ${index + 1}`} // ❗ ใส่คำอธิบายภาพ
+                            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                                index === currentSlide ? 'opacity-100' : 'opacity-0'
+                            }`}
+                        />
+                    ))}
+
+                    <button onClick={() =>
+                        setCurrentSlide((prev) =>
+                            prev === 0 ? BANNERS.length - 1 : prev - 1
+                        )
+                    }
+                        className='absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full'
+                    >
+                        <HiChevronLeft size={24} />
+                    </button>
+
+                    <button
+                        onClick={() =>
+                            setCurrentSlide((prev) => (prev + 1) % BANNERS.length)
+                        }
+                        className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full"
+                    >
+                        <HiChevronRight size={24} />
+                    </button>
+                </div>
+                
+                <div className='flex font-semibold text-3xl font-bold text-gray-800 mb-3'>
+                    <h2 className="font-semibold text-3xl text-gray-800 mb-3">
                         ค้นหาที่พักที่สมบูรณ์แบบ
                     </h2>
                     <p className="text-gray-600 font-semibold text-base max-w-3xl">
