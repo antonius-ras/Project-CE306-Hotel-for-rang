@@ -82,11 +82,11 @@ export const MOCK_HOTEL_DATA = {
         roomTypes: [
             {
                 name: 'ห้องเตียงเดียว', price: 3000, imageUrls: [
-                    "/hotel1/1b.png",
-                    "/hotel1/1b(1).png",
-                    "/hotel1/1br.png",
-                    "/hotel1/1rs.png",
-                    "/hotel1/1lr.png"
+                    "/hotel3/1b.png",
+                    "/hotel3/1b(1).png",
+                    "/hotel3/1br.png",
+                    "/hotel3/1rs.png",
+                    "/hotel3/1lr.png"
                 ]
             },
             { name: 'ห้องเตียงคู่', price: 3500 , imageUrls: [
@@ -756,7 +756,6 @@ const HotelDetailPage: React.FC = () => {
     const handleBookingSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const selectedRoomData = hotel.roomTypes[selectedRoom];
-
         const date1 = new Date(checkInDate);
         const date2 = new Date(checkOutDate);
         const diffTime = Math.abs(date2.getTime() - date1.getTime());
