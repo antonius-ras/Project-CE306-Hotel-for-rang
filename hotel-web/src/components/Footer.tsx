@@ -71,17 +71,12 @@ const Footer = () => {
               ลงทะเบียนเพื่อรับสิทธิพิเศษและส่วนลดก่อนใคร
             </p>
             <form className="flex flex-col gap-3">
-              <input 
-                type="email" 
-                placeholder="อีเมลของคุณ..." 
-                className="w-full px-4 py-3 bg-gray-50 text-gray-900  border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-sm"
-              />
+              <input type="email" placeholder="อีเมลของคุณ..." className="w-full px-4 py-3 bg-gray-50 text-gray-900  border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-sm"/>
               <button type="button" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 text-sm shadow-lg shadow-green-600/20">
                 สมัครรับข่าวสาร <FaPaperPlane className="text-xs" />
               </button>
             </form>
           </div>
-
         </div>
 
         {/* เส้นแบ่ง */}

@@ -8,7 +8,7 @@ import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 const BANNERS = [
     'Banner/banner1.jpg',
     'Banner/banner2.jpg',
-    'Banner/banner3.jpg',
+    'Banner/banner3.jpg'
 ];
 
 // 💡 สร้าง array ของสินค้าที่ต้องการแสดงผลจากข้อมูล MOCK_HOTEL_DATA
