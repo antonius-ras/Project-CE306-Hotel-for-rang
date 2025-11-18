@@ -619,7 +619,7 @@ const HotelDetailPage: React.FC = () => {
             guests: guests,
             numberOfNights: numberOfNights,
             totalPrice: totalPrice,
-            mainHotelImage: hotel.imageUrl,
+            mainHotelImage: hotel.imageUrl,    
             discount: discountAmount,      // ส่งค่าส่วนลด
             netPrice: finalPrice,          // ส่งราคาสุทธิ
             promoCodeUsed: promoCode,

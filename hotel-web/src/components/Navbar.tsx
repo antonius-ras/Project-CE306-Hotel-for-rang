@@ -76,8 +76,6 @@ export default function Navbar({
                 });
             }
         }
-        
-        // 2. ปิดเมนูมือถือเสมอหลังจากคลิก
         setIsOpen(false);
     };
 

@@ -57,10 +57,7 @@ const ReceiptPage: React.FC = () => {
                         <FaArrowLeft className="group-hover:-translate-x-1 transition-transform" />
                         กลับหน้าหลัก
                     </Link>
-                    <button 
-                        onClick={() => window.print()} 
-                        className="px-4 py-2 rounded-lg shadow-sm text-sm font-semibold bg-green-600 text-white hover:bg-green-700 flex items-center gap-2 transition-colors"
-                    >
+                    <button onClick={() => window.print()} className="px-4 py-2 rounded-lg shadow-sm text-sm font-semibold bg-green-600 text-white hover:bg-green-700 flex items-center gap-2 transition-colors">
                         <FaPrint /> พิมพ์ใบเสร็จ
                     </button>
                 </div>

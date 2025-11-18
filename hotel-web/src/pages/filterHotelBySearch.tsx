@@ -34,7 +34,7 @@ const FilterHotelBySearch = () => {
                 <FaArrowLeft className="group-hover:translate-x-1 transition-transform" />
                 กลับไปหน้าหลัก
             </button>
-            <h1 className="text-3xl font-bold text-gray-900 mb-6">
+            <h1 className="text-xl font-semibold text-cyan-700 mb-6 mt-6">
                 ผลการค้นหาสำหรับ "{query}" ({filteredHotels.length} แห่ง)
             </h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

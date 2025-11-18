@@ -38,7 +38,7 @@ const Home = () => {
 
     return (
         <main className="max-w-7xl mx-auto p-6">
-            <section id="home" className="mb-8">
+            <section id="home">
                 <div className="relative w-full h-96 rounded-lg overflow-hidden">
                     {BANNERS.map((banner, index) => (
                         <img
@@ -72,18 +72,18 @@ const Home = () => {
                 </div>
                 
 
-                        <div className='space-y-6 mt-8'>
-                            <h2 className="text-center text-3xl sm:text-4xl font-heading text-gray-900 tracking-wide">
+                        <div className='space-y-6 mt-8 p-6'>
+                            <h2 className="font-semibold text-center text-3xl sm:text-4xl font-heading text-gray-800 tracking-wide">
                                 ค้นหาที่พักที่สมบูรณ์แบบ
                             </h2>
                                 <div className="flex items-center justify-center mt-2">
 
-                                    <span className="w-14 h-[1px] bg-gray-400"></span>
-                                    <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                                    <span className="w-14 h-[1px] bg-gray-400"></span>
+                                    <span className="w-14 h-[1px] bg-cyan-500"></span>
+                                    <span className="w-2 h-2 bg-cyan-500 rounded-full"></span>
+                                    <span className="w-14 h-[1px] bg-cyan-500"></span>
 
                                 </div>
-                            <p className="text-gray-700 text-xs  sm:text-base leading-relaxed font-body">
+                            <p className="font-semibold text-gray-700 text-xs  sm:text-base leading-relaxed font-body">
                                 ค้นพบที่พักในฝันของคุณ ตั้งแต่โรงแรมหรู 5 ดาวใจกลางเมืองที่มองเห็นวิวตึกระฟ้า ไปจนถึงพูลวิลล่าส่วนตัวริมชายหาด หรือโฮมสเตย์บรรยากาศอบอุ่นท่ามกลางขุนเขา เรามีตัวเลือกที่ตอบโจทย์ทุกไลฟ์สไตล์และงบประมาณของคุณ ค้นหาและกรองที่พักได้ง่าย ๆ ตามสถานที่, ราคา, สิ่งอำนวยความสะดวก เช่น สระว่ายน้ำ, ฟิตเนส, หรือที่พักที่ต้อนรับสัตว์เลี้ยง เพื่อให้คุณได้พักผ่อนอย่างสมบูรณ์แบบ
                             </p>
                         </div>
