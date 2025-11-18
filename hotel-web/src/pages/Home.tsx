@@ -8,7 +8,8 @@ import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 const BANNERS = [
     'Banner/banner1.jpg',
     'Banner/banner2.jpg',
-    'Banner/banner3.jpg'
+    'Banner/banner3.jpg',
+    'Banner/banner4.png'
 ];
 
 // 💡 สร้าง array ของสินค้าที่ต้องการแสดงผลจากข้อมูล MOCK_HOTEL_DATA
@@ -33,7 +34,6 @@ const Home = () => {
         // นำทางไปยังเส้นทาง /booking/ ตามด้วย ID ของสินค้า
         navigate(`/hotel/${hotelId}`);
     };
-
 
     return (
         <main className="max-w-7xl mx-auto p-6">
@@ -69,17 +69,23 @@ const Home = () => {
                         <HiChevronRight size={24} />
                     </button>
                 </div>
-                    <div className='border border-green-500 rounded-2xl p-8 bg-green-50 shadow-lg mt-10 max-w-4xl mx-auto'>
-                        <div className='space-y-4'>
-                            <h2 className="text-3xl font-bold text-green-800">
+                
+
+                        <div className='space-y-6 mt-8'>
+                            <h2 className="text-center text-3xl sm:text-4xl font-heading text-gray-900 tracking-wide">
                                 ค้นหาที่พักที่สมบูรณ์แบบ
                             </h2>
-                            <p className="text-gray-700 text-lg leading-relaxed">
+                                <div className="flex items-center justify-center mt-2">
+                                    <span className="w-1/3 h-0.5 bg-gray-400"></span>
+                                    <span className="w-3 h-3 bg-gray-400 rounded-full mx-2"></span>
+                                    <span className="w-1/3 h-0.5 bg-gray-400"></span>
+                                </div>
+                            <p className="text-gray-700 text-xs  sm:text-base leading-relaxed font-body">
                                 ค้นพบที่พักในฝันของคุณ ตั้งแต่โรงแรมหรู 5 ดาวใจกลางเมืองที่มองเห็นวิวตึกระฟ้า ไปจนถึงพูลวิลล่าส่วนตัวริมชายหาด หรือโฮมสเตย์บรรยากาศอบอุ่นท่ามกลางขุนเขา เรามีตัวเลือกที่ตอบโจทย์ทุกไลฟ์สไตล์และงบประมาณของคุณ ค้นหาและกรองที่พักได้ง่าย ๆ ตามสถานที่, ราคา, สิ่งอำนวยความสะดวก เช่น สระว่ายน้ำ, ฟิตเนส, หรือที่พักที่ต้อนรับสัตว์เลี้ยง เพื่อให้คุณได้พักผ่อนอย่างสมบูรณ์แบบ
-
                             </p>
                         </div>
-                    </div>
+
+                    
             </section>
                 <ProvinceList />
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
