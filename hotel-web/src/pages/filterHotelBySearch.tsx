@@ -1,0 +1,63 @@
+import { useNavigate, useParams } from 'react-router-dom';
+import { ProductCard } from '../ProductCard';
+import { MOCK_HOTEL_DATA } from '../HotelDetailPage';
+
+// 💡 สร้าง array ของสินค้าที่ต้องการแสดงผลจากข้อมูล MOCK_HOTEL_DATA
+const displayProducts = Object.values(MOCK_HOTEL_DATA);
+
+const FilterHotelBySearch = () => {
+    const navigate = useNavigate();
+    // 💡 1a. ดึง "query" (คำค้นหา) จาก URL
+    const { query } = useParams<{ query: string }>();
+
+    const handleNavigateToDetails = (hotelId: string) => {
+        navigate(`/hotel/${hotelId}`);
+    };
+
+    // 💡 1b. ตรรกะการกรองตามคำค้นหา
+    const filteredHotels = displayProducts.filter(hotel => {
+        if (!query) return false;
+        const searchTerm = query.toLowerCase();
+
+        // ค้นหาใน: ชื่อโรงแรม, สถานที่, และรายละเอียด
+        return (
+            hotel.title.toLowerCase().includes(searchTerm) ||
+            hotel.location.toLowerCase().includes(searchTerm) ||
+            hotel.description.toLowerCase().includes(searchTerm)
+        );
+    });
+
+    return (
+        <main className="max-w-7xl mx-auto p-6">
+            <button
+                onClick={() => navigate('/')}
+                className="mb-6 bg-gray-100 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors"
+            >
+                &larr; กลับไปหน้าหลัก
+            </button>
+            <h1 className="text-3xl font-bold text-gray-900 mb-6">
+                ผลการค้นหาสำหรับ "{query}" ({filteredHotels.length} แห่ง)
+            </h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {filteredHotels.length > 0 ? (
+                    filteredHotels.map((p) => (
+                        <ProductCard
+                            key={`g-${p.id}`}
+                            imageUrl={p.imageUrl}
+                            title={p.title}
+                            location={p.location}
+                            description={p.description}
+                            amenities={p.amenities}
+                            id={p.id}
+                            onNavigateToDetails={handleNavigateToDetails}
+                        />
+                    ))
+                ) : (
+                    <p className="text-gray-600 col-span-3 text-center">ไม่พบโรงแรมที่ตรงกับการค้นหาของคุณ</p>
+                )}
+            </div>
+        </main>
+    );
+};
+
+export default FilterHotelBySearch;
