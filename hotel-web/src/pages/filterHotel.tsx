@@ -37,10 +37,10 @@ const FilterHotel = () => {
     return (
         <main className="max-w-7xl mx-auto p-6">
             <button onClick={() => navigate('/')}className="group px-4 py-2 rounded-lg shadow-md text-sm font-semibold transition-all flex items-center gap-2 bg-green-100 text-green-700 hover:bg-green-200 transition-colors">
-                <FaArrowLeft className="group-hover:translate-x-1 transition-transform" />
+                <FaArrowLeft className=" group-hover:translate-x-1 transition-transform" />
                 กลับไปหน้าหลัก
             </button>
-            <h1 className="text-3xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl font-bold text-gray-900 mb-6 mt-6">
                 โรงแรมใน {provinceName} ({filteredHotels.length} แห่ง)
             </h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
