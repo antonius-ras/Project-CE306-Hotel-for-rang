@@ -31,8 +31,6 @@ const FilterHotel = () => {
         if (province === 'kanchanaburi') return location.includes('kanchanaburi') || location.includes('กาญจณบุรี');
         if (province === 'chiangrai') return location.includes('chiangrai') || location.includes('เชียงราย');
         if (province === 'chachoengsao') return location.includes('chachoengsao') || location.includes('ฉะเชิงเทรา');
-
-        // จังหวัดอื่นๆ ที่ชื่อตรงตัว
         return location.includes(province);
     });
 
@@ -52,7 +50,7 @@ const FilterHotel = () => {
                             key={`g-${p.id}`}
                             imageUrl={p.imageUrl}
                             title={p.title}
-                            location={p.location} // แสดง location ที่นี่ด้วย
+                            location={p.location}
                             description={p.description}
                             amenities={p.amenities}
                             id={p.id}
