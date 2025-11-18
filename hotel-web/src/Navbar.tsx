@@ -33,11 +33,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button
-            type="submit"
-            className="absolute right-0 top-0 h-full px-4 rounded-r-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
-        >
-            {/* ไอคอนค้นหา (SVG) */}
+        <button type="submit"className="absolute right-0 top-0 h-full px-4 rounded-r-full bg-green-100 text-green-700 hover:bg-green-200 focus:outline-none">
             <HiSearch />
         </button>
     </form>
@@ -71,7 +67,7 @@ export default function Navbar({
                 <div className="flex justify-between items-center h-24">
                     {/* Logo */}
                     <div className="flex items-center">
-                        <a href="/" className="inline-flex items-center">
+                        <a href="/" className="hover:scale-105 transition-transform duration-300 ease-in-out inline-flex items-center">
                             <img src="/logo_color.png" alt="menu" className="inline-flex  h-32 h-24" />
 
                         </a>
