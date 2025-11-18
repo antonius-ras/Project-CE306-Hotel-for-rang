@@ -31,12 +31,7 @@ export default function ProvinceList () {
                         key={p.name} 
                         onClick={() =>  handleSelectProvince(p.name)}
                         className="relative w-64 h-64 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                    
-                        <img 
-                        src={p.image} 
-                        alt={p.name} 
-                        className="w-full h-full object-cover"/>
-                        
+                    <img src={p.image} alt={p.name} className="w-full h-full object-cover"/> 
                     <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 text-left">
                         <h1 className="text-white text-xl font-semibold leading-tight">{p.name}</h1>
                     </div>

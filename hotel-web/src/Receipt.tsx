@@ -58,6 +58,9 @@ const ReceiptPage: React.FC = () => {
             <div className="max-w-3xl mx-auto">
                 {/* ปุ่มกลับหน้าแรก */}
                 <div className="mb-4">
+                    <div>
+                        
+                    </div>
                     <Link 
                         to="/" 
                         className="text-blue-600 hover:underline flex items-center transition duration-150"

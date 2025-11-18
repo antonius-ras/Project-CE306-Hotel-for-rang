@@ -1,6 +1,8 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { ProductCard } from '../ProductCard';
 import { MOCK_HOTEL_DATA } from '../HotelDetailPage';
+import { FaArrowLeft} from 'react-icons/fa';  
+
 
 // 💡 สร้าง array ของสินค้าที่ต้องการแสดงผลจากข้อมูล MOCK_HOTEL_DATA
 const displayProducts = Object.values(MOCK_HOTEL_DATA);
@@ -36,11 +38,9 @@ const FilterHotel = () => {
 
     return (
         <main className="max-w-7xl mx-auto p-6">
-            <button
-                onClick={() => navigate('/')}
-                className="mb-6 bg-gray-100 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors"
-            >
-                &larr; กลับไปหน้าหลัก
+            <button onClick={() => navigate('/')}className="group px-4 py-2 rounded-lg shadow-md text-sm font-semibold transition-all flex items-center gap-2 bg-green-100 text-green-700 hover:bg-green-200 transition-colors">
+                <FaArrowLeft className="group-hover:translate-x-1 transition-transform" />
+                กลับไปหน้าหลัก
             </button>
             <h1 className="text-3xl font-bold text-gray-900 mb-6">
                 โรงแรมใน {provinceName} ({filteredHotels.length} แห่ง)
