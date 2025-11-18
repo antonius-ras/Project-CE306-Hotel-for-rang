@@ -13,7 +13,6 @@ export default function App() {
             <div className="min-h-screen bg-white">
                 <Navbar />
                 
-
                 {/* 💡 Routes หลักของแอป */}
                 <Routes>
                     <Route path="/" element={<Home />} />

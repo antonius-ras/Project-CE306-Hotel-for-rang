@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useNavigate } from "react-router-dom";
 
 export default function ProvinceList () {
@@ -21,7 +22,7 @@ export default function ProvinceList () {
 ];
     const handleSelectProvince = (provinceName: string) => {
         navigate(`/province/${provinceName}`);
-}    
+    }
 
     return (
         <div className="w-full flex justify-center bg-white py-10">
@@ -37,7 +38,9 @@ export default function ProvinceList () {
                     </div>
                     </button>
                 ))}
+                
             </div>
         </div>
     );
 };
+
