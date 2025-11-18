@@ -1,11 +1,11 @@
 import './App.css';
-import Navbar from './Navbar';
+import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import FilterHotel from './pages/filterHotel';
 import FilterHotelBySearch from './pages/filterHotelBySearch';
-import HotelDetailPage from './HotelDetailPage';
-import ReceiptPage from './Receipt';
+import HotelDetailPage from './pages/HotelDetailPage';
+import ReceiptPage from './pages/Receipt';
 
 export default function App() {
     return (

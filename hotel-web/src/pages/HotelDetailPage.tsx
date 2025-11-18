@@ -601,9 +601,7 @@ const HotelDetailPage: React.FC = () => {
         const date2 = new Date(checkOutDate);
         const diffTime = Math.abs(date2.getTime() - date1.getTime());
         const numberOfNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
         const totalPrice = selectedRoomData.price * numberOfNights;
-
         const bookingDetails = {
             hotelName: hotel.title,
             room: selectedRoomData,
@@ -615,11 +613,7 @@ const HotelDetailPage: React.FC = () => {
             mainHotelImage: hotel.imageUrl // รูปหลักของโรงแรม (ภาพรวม)
         };
 
-        navigate('/receipt', {
-            state: {
-                bookingData: bookingDetails
-            }
-        });
+        navigate('/receipt', {state: {bookingData: bookingDetails}});
     };
 
 
@@ -628,11 +622,7 @@ const HotelDetailPage: React.FC = () => {
             <div className="max-w-6xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
                 {/* รูปภาพ */}
                 <div className="relative h-96">
-                    <img
-                        src={hotel.imageUrl}
-                        alt={hotel.title}
-                        className="w-full h-full object-cover"
-                    />
+                    <img src={hotel.imageUrl} alt={hotel.title} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-6">
                         <h1 className="text-4xl font-bold text-white drop-shadow-lg">
                             {hotel.title}
@@ -655,19 +645,19 @@ const HotelDetailPage: React.FC = () => {
                                         <span className="flex items-center gap-1 text-yellow-500 bg-yellow-50 px-2 py-1 rounded-md">
                                             <FaStar /> {hotel.rating}
                                         </span>
-                                        <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                                        <span className="text-gray-700">
+                                        <span className="w-1 h-1 bg-gray-300 rounded-full"> </span>
+                                        <span className=" text-gray-800">
                                             {hotel.numberOfReviews} รีวิว
                                         </span>
                                         <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                                        <span className="flex items-center gap-1 text-blue-600">
-                                            <FaMapMarkerAlt /> {hotel.location}
+                                        <span className="flex text-gray-800 items-center gap-1 ">
+                                            <FaMapMarkerAlt className='text-red-600'/> {hotel.location}
                                         </span>
                                     </div>
                                     {/* สิ่งอำนวยความสะดวก */}
                                     <div className=" flex flex-wrap gap-4">
                                         {hotel.amenities.map((item) => (
-                                            <span key={item}className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+                                            <span key={item}className="bg-green-50 text-green-700 text-sm font-medium px-3 py-1 rounded-full">
                                                 {item}
                                             </span>
                                         ))}
@@ -683,7 +673,7 @@ const HotelDetailPage: React.FC = () => {
                             {/* --- Image Gallery Design ใหม่ --- */}
                             <div className="space-y-4">
                                 {/* รูปใหญ่ */}
-                                <div className="group relative w-full h-[450px] overflow-hidden rounded-2xl shadow-lg border border-gray-100">
+                                <div className="group relative w-full h-[250px] overflow-hidden rounded-2xl shadow-lg border border-gray-100">
                                     <img
                                         src={hotel.roomTypes[selectedRoom].imageUrls[activeImageIndex]}
                                         alt={hotel.roomTypes[selectedRoom].name}
@@ -695,33 +685,17 @@ const HotelDetailPage: React.FC = () => {
                                     </div>
                                 </div>
 
-
-
                                 {/* รูปย่อ (Thumbnails) */}
                                 {hotel.roomTypes[selectedRoom].imageUrls.length > 1 && (
-                                    <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
-                                        <div className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-lg text-gray-400 shrink-0">
-                                            <FaRegImages />
-                                        </div>
+                                    <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide p-2">
+                                        
                                         {hotel.roomTypes[selectedRoom].imageUrls.map((imgUrl, index) => (
-                                            <button
-                                                key={index}
-                                                onClick={() => handleThumbnailClick(index)}
-                                                className={`relative w-24 h-20 shrink-0 rounded-lg overflow-hidden transition-all duration-300 ${activeImageIndex === index
-                                                    ? 'ring-2 ring-blue-600 ring-offset-2 shadow-md scale-105'
-                                                    : 'opacity-70 hover:opacity-100 hover:scale-105'
-                                                    }`}
-                                            >
-                                                <img
-                                                    src={imgUrl}
-                                                    alt={`Thumbnail ${index + 1}`}
-                                                    className="w-full h-full object-cover"
-                                                />
+                                            <button key={index} onClick={() => handleThumbnailClick(index)} className={`relative w-24 h-20 shrink-0 rounded-lg overflow-hidden transition-all duration-300 ${activeImageIndex === index? 'ring-2 ring-green-600 ring-offset-2 shadow-md scale-105': 'opacity-70 hover:opacity-100 hover:scale-105'}`}>
+                                                <img src={imgUrl} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover"/>
                                             </button>
                                         ))}
                                     </div>
                                 )}
-
                             </div>
                         </section>
                     </div>
@@ -734,7 +708,6 @@ const HotelDetailPage: React.FC = () => {
                                 ฿{hotel.roomTypes[selectedRoom].price.toLocaleString()}
                                 <span className="text-base font-normal text-gray-500"> / คืน</span>
                             </div>
-
                             <form onSubmit={handleBookingSubmit} className="space-y-4">
                                 <div>
                                     <label htmlFor="roomType"className="block text-sm font-medium text-gray-700">
@@ -764,10 +737,7 @@ const HotelDetailPage: React.FC = () => {
                                 </div>
 
                                 <div>
-                                    <label
-                                        htmlFor="checkout"
-                                        className="block text-sm text-gray-700 bg-white font-medium text-gray-700"
-                                    >
+                                    <label htmlFor="checkout" className="block text-sm text-gray-700 bg-white font-medium text-gray-700">
                                         เช็คเอาท์
                                     </label>
                                     <input
@@ -781,10 +751,7 @@ const HotelDetailPage: React.FC = () => {
                                 </div>
 
                                 <div>
-                                    <label
-                                        htmlFor="guests"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
+                                    <label htmlFor="guests" className="block text-sm font-medium text-gray-700">
                                         จำนวนแขก
                                     </label>
                                     <input
@@ -797,11 +764,7 @@ const HotelDetailPage: React.FC = () => {
                                         required
                                     />
                                 </div>
-
-                                <button
-                                    type="submit"
-                                    className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-150"
-                                >
+                                <button type="submit"className="w-full py-3 group bg-green-100 text-green-700 hover:bg-green-200  font-semibold rounded-lg transition duration-150">
                                     จองทันที
                                 </button>
                             </form>

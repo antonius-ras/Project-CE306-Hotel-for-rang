@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { ProductCard } from '../ProductCard';
-import { MOCK_HOTEL_DATA } from '../HotelDetailPage';
+import { ProductCard } from '../components/ProductCard';
+import { MOCK_HOTEL_DATA } from './HotelDetailPage';
 import { FaArrowLeft} from 'react-icons/fa'; 
 
 // 💡 สร้าง array ของสินค้าที่ต้องการแสดงผลจากข้อมูล MOCK_HOTEL_DATA

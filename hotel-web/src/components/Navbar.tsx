@@ -27,7 +27,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 }) => (
     <form onSubmit={handleSearchSubmit} className="relative flex items-center w-full">
         <input
-            className="w-full pl-5 pr-12 py-2 rounded-full shadow-md text-black bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-5 pr-12 py-2 rounded-full shadow-md text-black bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
             type="text"
             placeholder="ค้นหาโรงแรม..."
             value={searchQuery}
@@ -78,7 +78,7 @@ export default function Navbar({
                         {/* Desktop Nav Links */}
                         <nav className="hidden md:flex space-x-6 items-center">
                             {links.map((link) => (
-                                <a key={link.id} href={link.href} className="text-gray-700 hover:text-blue-600 transition-colors duration-150" >
+                                <a key={link.id} href={link.href} className="hover:scale-105 transition-transform text-gray-700 hover:text-green-600 transition-colors duration-150" >
                                     {link.label}
                                 </a>
                             ))}

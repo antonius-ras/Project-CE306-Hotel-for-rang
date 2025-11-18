@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProvinceList from '../components/ProvinceList';
-import { ProductCard } from '../ProductCard';
-import { MOCK_HOTEL_DATA } from '../HotelDetailPage';
+import { ProductCard } from '../components/ProductCard';
+import { MOCK_HOTEL_DATA } from './HotelDetailPage';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 const BANNERS = [

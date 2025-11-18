@@ -58,16 +58,13 @@ const ReceiptPage: React.FC = () => {
             <div className="max-w-3xl mx-auto">
                 {/* ปุ่มกลับหน้าแรก */}
                 <div className="mb-4">
-                    <div>
-                        
-                    </div>
-                    <Link 
-                        to="/" 
-                        className="text-blue-600 hover:underline flex items-center transition duration-150"
-                    >
-                        <FaArrowLeft className="mr-2" />
+                    <div className="flex items-center">
+                    <Link to="/" className="group px-4 py-2 rounded-lg shadow-md text-sm font-semibold transition-all flex items-center gap-2 bg-green-100 text-green-700 hover:bg-green-200 transition-colors">
+                        <FaArrowLeft className="group-hover:translate-x-1 transition-transform" />
                         ทำการจองใหม่
                     </Link>
+                    </div>
+                    
                 </div>
 
                 {/* การ์ดใบเสร็จ */}
@@ -147,11 +144,11 @@ const ReceiptPage: React.FC = () => {
 
                         {/* ยอดรวม */}
                         <hr className="my-6" />
-                        <div className="flex justify-between items-center bg-blue-50 p-5 rounded-lg">
-                            <span className="text-xl font-semibold text-gray-800">
+                        <div className="flex justify-between items-center bg-green-50 p-5 rounded-lg">
+                            <span className="text-xl font-semibold text-green-800">
                                 ยอดรวมทั้งหมด:
                             </span>
-                            <span className="text-3xl font-bold text-blue-600">
+                            <span className="text-3xl font-bold text-green-600">
                                 ฿{totalPrice.toLocaleString()}
                             </span>
                         </div>
