@@ -6,10 +6,12 @@ import { MOCK_HOTEL_DATA } from './HotelDetailPage';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 const BANNERS = [
-    'Banner/banner1.jpg',
+    'Banner/banner1.png',
     'Banner/banner2.jpg',
     'Banner/banner3.jpg',
-    'Banner/banner4.jpg'
+    'Banner/banner4.jpg',
+    'Banner/banner5.jpg'
+
 
 ];
 
@@ -39,7 +41,7 @@ const Home = () => {
     return (
         <main className="max-w-7xl mx-auto p-6">
             <section id="home">
-                <div className="relative w-full h-96 rounded-lg overflow-hidden">
+                <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-2">
                     {BANNERS.map((banner, index) => (
                         <img
                             key={banner}
@@ -70,7 +72,6 @@ const Home = () => {
                         <HiChevronRight size={24} />
                     </button>
                 </div>
-                
 
                         <div className='space-y-6 mt-8 p-6'>
                             <h2 className="font-semibold text-center text-3xl sm:text-4xl font-heading text-gray-800 tracking-wide">
