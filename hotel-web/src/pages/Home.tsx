@@ -77,9 +77,9 @@ const Home = () => {
                                 ค้นหาที่พักที่สมบูรณ์แบบ
                             </h2>
                                 <div className="flex items-center justify-center mt-2">
-                                    <span className="w-1/3 h-0.5 bg-gray-400"></span>
-                                    <span className="w-3 h-3 bg-gray-400 rounded-full mx-2"></span>
-                                    <span className="w-1/3 h-0.5 bg-gray-400"></span>
+                                    <span className="w-14 h-[1px] bg-gray-400"></span>
+                                    <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
+                                    <span className="w-14 h-[1px] bg-gray-400"></span>
                                 </div>
                             <p className="text-gray-700 text-xs  sm:text-base leading-relaxed font-body">
                                 ค้นพบที่พักในฝันของคุณ ตั้งแต่โรงแรมหรู 5 ดาวใจกลางเมืองที่มองเห็นวิวตึกระฟ้า ไปจนถึงพูลวิลล่าส่วนตัวริมชายหาด หรือโฮมสเตย์บรรยากาศอบอุ่นท่ามกลางขุนเขา เรามีตัวเลือกที่ตอบโจทย์ทุกไลฟ์สไตล์และงบประมาณของคุณ ค้นหาและกรองที่พักได้ง่าย ๆ ตามสถานที่, ราคา, สิ่งอำนวยความสะดวก เช่น สระว่ายน้ำ, ฟิตเนส, หรือที่พักที่ต้อนรับสัตว์เลี้ยง เพื่อให้คุณได้พักผ่อนอย่างสมบูรณ์แบบ
