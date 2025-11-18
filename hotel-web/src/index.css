@@ -42,3 +42,53 @@
 .light-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: #9ca3af; /* สีตอนเอาเมาส์ชี้ - สีเทาเข้มขึ้น */
 }
+
+@media print {
+                        @page {
+                            size: auto;
+                            margin: 0mm;
+                        }
+                        
+                        /* ซ่อนทุกอย่างก่อน */
+                        body * {
+                            visibility: hidden;
+                            height: 0;
+                            overflow: hidden;
+                        }
+
+                        /* 1. แสดงเฉพาะใบเสร็จและลูกๆ ของมัน */
+                        #printable-receipt, #printable-receipt * {
+                            visibility: visible;
+                            height: auto;
+                        }
+                        
+                        /* 2. ✅ แก้ไข: สั่ง overflow: visible เฉพาะสิ่งที่ไม่ใช่รูปภาพ เพื่อแก้ Warning */
+                        #printable-receipt, #printable-receipt *:not(img) {
+                            overflow: visible;
+                        }
+
+                        /* จัดใบเสร็จให้เต็มหน้ากระดาษ A4 */
+                        #printable-receipt {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            margin: 0;
+                            padding: 20px;
+                            box-shadow: none !important;
+                            border: none !important;
+                            border-radius: 0 !important;
+                            background-color: white !important;
+                        }
+
+                        /* ซ่อนพื้นหลังสีดำและปุ่มกด */
+                        .print-hidden, .no-print {
+                            display: none !important;
+                        }
+
+                        /* บังคับให้พิมพ์สีพื้นหลัง */
+                        * {
+                            -webkit-print-color-adjust: exact !important;
+                            print-color-adjust: exact !important;
+                        }
+                    }

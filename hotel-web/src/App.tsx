@@ -6,6 +6,7 @@ import FilterHotel from './pages/filterHotel';
 import FilterHotelBySearch from './pages/filterHotelBySearch';
 import HotelDetailPage from './pages/HotelDetailPage';
 import ReceiptPage from './pages/Receipt';
+import Footer from './components/Footer';
 
 export default function App() {
     return (
@@ -23,6 +24,7 @@ export default function App() {
                     {/* 💡 หน้าแสดงผลโรงแรมตามคำค้นหา */}
                     <Route path="/search/:query" element={<FilterHotelBySearch />} />
                 </Routes>
+                <Footer />
             </div>
         </Router>
     );

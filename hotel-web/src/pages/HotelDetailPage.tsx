@@ -574,6 +574,7 @@ const HotelDetailPage: React.FC = () => {
     const [activeImageIndex, setActiveImageIndex] = useState(0);
     const [guests, setGuests] = useState(1);
     const [selectedRoom, setSelectedRoom] = useState(0);
+    const [promoCode, setPromoCode] = useState("");
     const navigate = useNavigate();
 
     if (!hotel) {
@@ -593,6 +594,7 @@ const HotelDetailPage: React.FC = () => {
     const handleThumbnailClick = (index: React.SetStateAction<number>) => {
         setActiveImageIndex(index); // 👈 แค่ set index รูปที่ถูกคลิก
     };
+    const isPromoValid = promoCode.trim().toLowerCase() === 'hotelforrang';
 
     const handleBookingSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -602,6 +604,13 @@ const HotelDetailPage: React.FC = () => {
         const diffTime = Math.abs(date2.getTime() - date1.getTime());
         const numberOfNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
         const totalPrice = selectedRoomData.price * numberOfNights;
+        let discountAmount = 0;
+        let finalPrice = totalPrice;
+
+        if (promoCode.trim().toLowerCase() === 'hotelforrang') {
+            discountAmount = totalPrice * 0.10; // ลด 10% (แก้ตัวเลขตรงนี้ถ้าอยากลดเยอะกว่านี้)
+            finalPrice = totalPrice - discountAmount;
+        }   
         const bookingDetails = {
             hotelName: hotel.title,
             room: selectedRoomData,
@@ -610,7 +619,11 @@ const HotelDetailPage: React.FC = () => {
             guests: guests,
             numberOfNights: numberOfNights,
             totalPrice: totalPrice,
-            mainHotelImage: hotel.imageUrl // รูปหลักของโรงแรม (ภาพรวม)
+            mainHotelImage: hotel.imageUrl,
+            discount: discountAmount,      // ส่งค่าส่วนลด
+            netPrice: finalPrice,          // ส่งราคาสุทธิ
+            promoCodeUsed: promoCode,
+            promotion : promoCode// รูปหลักของโรงแรม (ภาพรวม)
         };
 
         navigate('/receipt', {state: {bookingData: bookingDetails}});
@@ -764,7 +777,24 @@ const HotelDetailPage: React.FC = () => {
                                         required
                                     />
                                 </div>
-                                <button type="submit"className="w-full py-3 group bg-green-100 text-green-700 hover:bg-green-200  font-semibold rounded-lg transition duration-150">
+                                <div>
+                                    <label htmlFor="promo" className="block text-sm font-medium text-gray-700">
+                                        Promo Code
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="promo"
+                                        value={promoCode}
+                                        onChange={(e) => setPromoCode(e.target.value)}
+                                        placeholder="กรอกโค้ด hotelforrang"
+                                        className={`mt-1 block w-full text-gray-700 bg-white border rounded-md shadow-sm p-2 transition-colors ${
+                                            promoCode && isPromoValid 
+                                            ? 'border-green-500 ring-1 ring-green-500' 
+                                            : 'border-gray-300'
+                                        }`} 
+                                    />
+                                </div>
+                                <button type="submit"className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 text-sm shadow-lg shadow-green-600/20">
                                     จองทันที
                                 </button>
                             </form>
