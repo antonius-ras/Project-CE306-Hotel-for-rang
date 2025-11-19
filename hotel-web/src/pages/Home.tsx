@@ -42,7 +42,7 @@ const Home = () => {
     return (
         <main className="max-w-7xl mx-auto p-6">
             <section id="home">
-                <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-2">
+                <div className="relative w-full aspect-video aspect-[2.5/1] rounded-lg overflow-hidden mb-2">
                     {BANNERS.map((banner, index) => (
                         <img
                             key={banner}
