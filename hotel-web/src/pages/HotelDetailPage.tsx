@@ -591,7 +591,6 @@ const HotelDetailPage: React.FC = () => {
             </div>
         );
     }
-    
 // --- ฟังก์ชันเมื่อผู้ใช้เปลี่ยนประเภทห้อง ---
     const handleRoomTypeChange = (e: { target: { value: string; }; }) => {
         const newRoomIndex = parseInt(e.target.value);
@@ -649,7 +648,7 @@ const HotelDetailPage: React.FC = () => {
         // 6. สั่งเปลี่ยนหน้าไปที่ /receipt พร้อมส่งข้อมูล (state) ไปด้วย
         navigate('/receipt', {state: {bookingData: bookingDetails}});
     };
-
+    
     return (
         <div className="min-h-screen bg-gray-50 p-6 lg:p-12">
             <div className="max-w-6xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
@@ -669,7 +668,7 @@ const HotelDetailPage: React.FC = () => {
 
                         {/* Section: รายละเอียด */}
                         <section>
-                            <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 border-b border-gray-100 pb-6">
+                            <div className="flex flex-col md:flex-row md:items-end justify-between mb-3 border-b border-gray-100 pb-6">
                                 <div>
                                     <h2 className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">
                                         รายละเอียดที่พัก
@@ -698,7 +697,7 @@ const HotelDetailPage: React.FC = () => {
                                 </div>
                             </div>
 
-                            <p className="text-gray-600 leading-loose text-lg mb-8 font-light">
+                            <p className="text-gray-600 leading-loose text-lg mb-3 font-light">
                                 {hotel.description}
                             </p>
 
@@ -706,7 +705,7 @@ const HotelDetailPage: React.FC = () => {
                             {/* --- Image Gallery Design ใหม่ --- */}
                             <div className="space-y-4">
                                 {/* รูปใหญ่ */}
-                                <div className="group relative w-full h-[250px] overflow-hidden rounded-2xl shadow-lg border border-gray-100">
+                                <div className="group relative w-full h-[350px] overflow-hidden rounded-2xl shadow-lg border border-gray-100">
                                     <img
                                         src={hotel.roomTypes[selectedRoom].imageUrls[activeImageIndex]}
                                         alt={hotel.roomTypes[selectedRoom].name}
