@@ -62,7 +62,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 {/* ใช้ .map เพื่อวนลูป amenities แล้วสร้างเป็นป้าย (Badge) เล็กๆ หลายๆ อัน */}
                 <div className="flex flex-wrap gap-2 mb-3">
                     {amenities.map((item, index) => (
-                        <span key={index} className="bg-green-50 text-green-700 ... rounded-full flex items-center gap-1">
+                        <span key={index} className="bg-green-50 text-green-700 hover:bg-green-200 border border-blue-100 text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1">
                             <FaCheckCircle/> {/* ไอคอนติ๊กถูก */}
                             {item}
                         </span>
@@ -78,7 +78,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 {/* 5. ปุ่ม Book Now */}
                 {/* absolute bottom-4 right-4: สั่งให้ปุ่มลอยติดมุมขวาล่างของการ์ดเสมอ ไม่ว่าข้อความจะยาวแค่ไหน */}
                 <div className="absolute bottom-4 right-4">
-                    <button onClick={handleCardClick} className="group bg-green-100 ... flex items-center gap-2">
+                    <button onClick={handleCardClick} className="group bg-green-100 text-green-700 hover:bg-green-200  px-4 py-2 rounded-lg shadow-md text-sm font-semibold transition-all flex items-center gap-2">
                         Book Now
                         {/* ลูกศรขยับขวาเมื่อเอาเมาส์ชี้ปุ่ม (group-hover:translate-x-1) */}
                         <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
