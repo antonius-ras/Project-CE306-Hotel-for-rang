@@ -1,29 +1,21 @@
 import React from 'react';
 import { useLocation, Link, Navigate } from 'react-router-dom';
-import { 
-    FaCheckCircle, 
-    FaCalendarAlt, 
-    FaMoon, 
-    FaUsers, 
-    FaBed, 
-    FaArrowLeft,
-    FaFileInvoiceDollar,
-    FaHome,
-    FaPrint
-} from 'react-icons/fa';
+import { FaCheckCircle, FaCalendarAlt,  FaUsers, FaBed, FaArrowLeft,FaFileInvoiceDollar,FaPrint} from 'react-icons/fa';
 
 const ReceiptPage: React.FC = () => {
-    const location = useLocation();
+    const location = useLocation(); // 1. useLocation: เป็น Hook เพื่อขอเข้าถึง "state" ที่ถูกส่งมาจากหน้า HotelDetailPage (ผ่านคำสั่ง navigate)
     
-    // 1. ดึงข้อมูล bookingData
+    // 2. ดึงข้อมูล bookingData ออกจาก state
     const { bookingData } = location.state || {}; 
-
-    // 2. กรณีไม่มีข้อมูล ให้ดีดกลับหน้าแรกทันที หรือแสดงหน้า Error
+    
+    // 3. Validation (Security): ป้องกันคนพิมพ์ URL /receipt เข้ามาเองโดยไม่ได้กดจอง
+    // ถ้าไม่มี bookingData ให้ดีดกลับไปหน้าแรก (/) ทันที
     if (!bookingData) {
         return <Navigate to="/" replace />;
     }
 
-    // 3. Destructure และเตรียมตัวแปรให้ปลอดภัย (ใส่ || 0 กันแอปพัง)
+    // 4. Destructuring & Default Values: "แกะกล่อง" ข้อมูลออกมาใส่ตัวแปร
+    // การใส่ = 0 หรือ = "" ด้านหลัง คือการกันแอปพัง (Fallback) เผื่อข้อมูลตัวไหนเป็น undefined จะได้ใช้ค่าเริ่มต้นแทน
     const {
         hotelName,
         room,
@@ -38,10 +30,10 @@ const ReceiptPage: React.FC = () => {
         mainHotelImage,
     } = bookingData;
 
-    // เลือกราคาที่จะแสดงผล (ถ้าไม่มี netPrice ให้ใช้ totalPrice แทน)
+    // 5. Logic เลือกราคา: ถ้ามี netPrice (ราคาหลังหักส่วนลด) ให้ใช้ตัวนั้น ถ้าไม่มีให้ใช้ totalPrice (ราคาเต็ม)
     const finalPriceToPay = netPrice || totalPrice;
 
-    // ฟังก์ชัน Format วันที่
+    // 6. Utility Function: ฟังก์ชันแปลงวันที่ให้อ่านง่ายเป็นภาษาไทย (เช่น "19 พฤศจิกายน 2568")
     const formatDate = (dateString: string) => {
         if (!dateString) return "-";
         const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };

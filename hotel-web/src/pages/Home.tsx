@@ -47,51 +47,36 @@ const Home = () => {
                             key={banner}
                             src={banner} // ❗ ใส่ path ของ Banner
                             alt={`Banner ${index + 1}`} // ❗ ใส่คำอธิบายภาพ
-                            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                                index === currentSlide ? 'opacity-100' : 'opacity-0'
-                            }`}
-                        />
+                            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`} />
                     ))}
-
-                    <button onClick={() =>
-                        setCurrentSlide((prev) =>
-                            prev === 0 ? BANNERS.length - 1 : prev - 1
-                        )
-                    }
-                        className='absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full'
-                    >
+                    <button onClick={() => setCurrentSlide((prev) => prev === 0 ? BANNERS.length - 1 : prev - 1)} className='absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full'>
                         <HiChevronLeft size={24} />
                     </button>
 
-                    <button
-                        onClick={() =>
-                            setCurrentSlide((prev) => (prev + 1) % BANNERS.length)
-                        }
-                        className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full"
-                    >
+                    <button onClick={() => setCurrentSlide((prev) => (prev + 1) % BANNERS.length)} className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full">
                         <HiChevronRight size={24} />
                     </button>
                 </div>
 
-                        <div className='space-y-6 mt-8 p-6'>
-                            <h2 className="font-semibold text-center text-3xl sm:text-4xl font-heading text-gray-800 tracking-wide">
-                                ค้นหาที่พักที่สมบูรณ์แบบ
-                            </h2>
-                                <div className="flex items-center justify-center mt-2">
+                <div className='space-y-6 mt-8 p-6'>
+                    <h2 className="font-semibold text-center text-3xl sm:text-4xl font-heading text-gray-800 tracking-wide">
+                        ค้นหาที่พักที่สมบูรณ์แบบ
+                    </h2>
+                    <div className="flex items-center justify-center mt-2">
 
-                                    <span className="w-14 h-[1px] bg-cyan-500"></span>
-                                    <span className="w-2 h-2 bg-cyan-500 rounded-full"></span>
-                                    <span className="w-14 h-[1px] bg-cyan-500"></span>
+                        <span className="w-14 h-[1px] bg-cyan-500"></span>
+                        <span className="w-2 h-2 bg-cyan-500 rounded-full"></span>
+                        <span className="w-14 h-[1px] bg-cyan-500"></span>
 
-                                </div>
-                            <p className="font-semibold text-gray-700 text-xs  sm:text-base leading-relaxed font-body">
-                                ค้นพบที่พักในฝันของคุณ ตั้งแต่โรงแรมหรู 5 ดาวใจกลางเมืองที่มองเห็นวิวตึกระฟ้า ไปจนถึงพูลวิลล่าส่วนตัวริมชายหาด หรือโฮมสเตย์บรรยากาศอบอุ่นท่ามกลางขุนเขา เรามีตัวเลือกที่ตอบโจทย์ทุกไลฟ์สไตล์และงบประมาณของคุณ ค้นหาและกรองที่พักได้ง่าย ๆ ตามสถานที่, ราคา, สิ่งอำนวยความสะดวก เช่น สระว่ายน้ำ, ฟิตเนส, หรือที่พักที่ต้อนรับสัตว์เลี้ยง เพื่อให้คุณได้พักผ่อนอย่างสมบูรณ์แบบ
-                            </p>
-                        </div>
-
-                    
+                    </div>
+                    <p className="font-semibold text-gray-700 text-xs  sm:text-base leading-relaxed font-body">
+                        ค้นพบที่พักในฝันของคุณ ตั้งแต่โรงแรมหรู 5 ดาวใจกลางเมืองที่มองเห็นวิวตึกระฟ้า ไปจนถึงพูลวิลล่าส่วนตัวริมชายหาด หรือโฮมสเตย์บรรยากาศอบอุ่นท่ามกลางขุนเขา เรามีตัวเลือกที่ตอบโจทย์ทุกไลฟ์สไตล์และงบประมาณของคุณ ค้นหาและกรองที่พักได้ง่าย ๆ ตามสถานที่, ราคา, สิ่งอำนวยความสะดวก เช่น สระว่ายน้ำ, ฟิตเนส, หรือที่พักที่ต้อนรับสัตว์เลี้ยง เพื่อให้คุณได้พักผ่อนอย่างสมบูรณ์แบบ
+                    </p>
+                </div>
             </section>
-                <ProvinceList />
+            
+            <ProvinceList />
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {/* เปลี่ยนมาใช้ displayProducts ที่ดึงมาจาก MOCK_HOTEL_DATA แทน */}
                 {displayProducts.map((p) => (

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { FaStar, FaMapMarkerAlt } from 'react-icons/fa'; // อย่าลืม import เพิ่มนะครับ
+import { useParams, useNavigate } from 'react-router-dom'; // ใช้สำหรับดึงค่าจาก URL และเปลี่ยนหน้า
+import { FaStar, FaMapMarkerAlt } from 'react-icons/fa'; // ไอคอนดาวและหมุดแผนที่
 
+// ... (ข้ามส่วน HOTEL_DATA และ MOCK_HOTEL_DATA ไป เพราะเป็นแค่ข้อมูลดิบ) ...
+// MOCK_HOTEL_DATA คือ Object ที่เก็บข้อมูลโรงแรมทั้งหมด โดยใช้ Key เป็น ID (เช่น '1', '2')
 
 export const HOTEL_DATA = [
     { name: "Bangkok", image: "./Provinces/Bangkok.webp" },
@@ -566,17 +568,22 @@ export const MOCK_HOTEL_DATA = {
 
 
 const HotelDetailPage: React.FC = () => {
+    // useParams : ดึงค่า hotelId มาจาก URL (เช่น /hotel/1 -> hotelId = 1)
     const { hotelId } = useParams<{ hotelId: string }>();
+    // ดึงข้อมูลโรงแรมจาก MOCK_HOTEL_DATA โดยใช้ hotelId ที่ได้มา
     const hotel = MOCK_HOTEL_DATA[hotelId as keyof typeof MOCK_HOTEL_DATA];
 
-    const [checkInDate, setCheckInDate] = useState('');
-    const [checkOutDate, setCheckOutDate] = useState('');
-    const [activeImageIndex, setActiveImageIndex] = useState(0);
-    const [guests, setGuests] = useState(1);
-    const [selectedRoom, setSelectedRoom] = useState(0);
-    const [promoCode, setPromoCode] = useState("");
+    // useState : สร้างตัวแปรสำหรับเก็บค่าที่ผู้ใช้กรอกในฟอร์ม
+    const [checkInDate, setCheckInDate] = useState('');       // วันเช็คอิน
+    const [checkOutDate, setCheckOutDate] = useState('');     // วันเช็คเอาท์
+    const [activeImageIndex, setActiveImageIndex] = useState(0); // เก็บ Index ของรูปภาพที่กำลังแสดงอยู่ (เริ่มที่รูปแรก = 0)
+    const [guests, setGuests] = useState(1);                  // จำนวนแขก
+    const [selectedRoom, setSelectedRoom] = useState(0);      // ประเภทห้องที่เลือก (เก็บเป็น Index ของ Array roomTypes)
+    const [promoCode, setPromoCode] = useState("");           // โค้ดส่วนลด
+    
+    // useNavigate: ใช้สำหรับสั่งให้เปลี่ยนหน้าไปยังหน้าอื่น (ในที่นี้คือหน้าใบเสร็จ)
     const navigate = useNavigate();
-
+    // ถ้าหาโรงแรมไม่เจอ (hotel เป็น undefined) ให้แสดงข้อความแจ้งเตือน
     if (!hotel) {
         return (
             <div className="text-center p-10 text-red-600 text-2xl">
@@ -584,33 +591,47 @@ const HotelDetailPage: React.FC = () => {
             </div>
         );
     }
-
+    
+// --- ฟังก์ชันเมื่อผู้ใช้เปลี่ยนประเภทห้อง ---
     const handleRoomTypeChange = (e: { target: { value: string; }; }) => {
         const newRoomIndex = parseInt(e.target.value);
-        setSelectedRoom(newRoomIndex);
-        setActiveImageIndex(0); // 👈 **สำคัญ:** รีเซ็ต index รูปภาพเป็น 0 ทุกครั้งที่เปลี่ยนห้อง
+        setSelectedRoom(newRoomIndex); // อัปเดต state ว่าเลือกห้องไหน
+        setActiveImageIndex(0); // **สำคัญ** รีเซ็ตรูปภาพกลับไปเป็นรูปแรกของห้องประเภทใหม่เสมอ
     };
-    // ฟังก์ชันสำหรับคลิกที่รูปย่อ
+
+    // --- ฟังก์ชันเมื่อคลิกรูปเล็ก (Thumbnail) ---
     const handleThumbnailClick = (index: React.SetStateAction<number>) => {
-        setActiveImageIndex(index); // 👈 แค่ set index รูปที่ถูกคลิก
+        setActiveImageIndex(index); // เปลี่ยนรูปใหญ่ให้ตรงกับรูปเล็กที่คลิก
     };
+
+    // ตรวจสอบว่าโค้ดส่วนลดถูกต้องหรือไม่ (ใช้ .trim() ตัดช่องว่าง และ .toLowerCase() เพื่อไม่สนตัวพิมพ์เล็ก/ใหญ่)
     const isPromoValid = promoCode.trim().toLowerCase() === 'hotelforrang';
 
+    // --- ฟังก์ชันเมื่อกดปุ่ม "จองทันที" (Submit Form) ---
     const handleBookingSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+        e.preventDefault(); // ป้องกันไม่ให้หน้าเว็บรีเฟรชตัวเอง
+        
+        // 1. ดึงข้อมูลห้องที่เลือกออกมา
         const selectedRoomData = hotel.roomTypes[selectedRoom];
+        
+        // 2. คำนวณจำนวนคืน
         const date1 = new Date(checkInDate);
         const date2 = new Date(checkOutDate);
-        const diffTime = Math.abs(date2.getTime() - date1.getTime());
-        const numberOfNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        const totalPrice = selectedRoomData.price * numberOfNights;
+        const diffTime = Math.abs(date2.getTime() - date1.getTime()); // หาผลต่างเวลา (milliseconds)
+        const numberOfNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // แปลงเป็นวัน (หารด้วย ms ใน 1 วัน)
+        
+        // 3. คำนวณราคา
+        const totalPrice = selectedRoomData.price * numberOfNights; // ราคารวม = ราคาห้อง * จำนวนคืน
         let discountAmount = 0;
         let finalPrice = totalPrice;
 
+        // 4. คำนวณส่วนลด
         if (promoCode.trim().toLowerCase() === 'hotelforrang') {
-            discountAmount = totalPrice * 0.10; // ลด 10% (แก้ตัวเลขตรงนี้ถ้าอยากลดเยอะกว่านี้)
+            discountAmount = totalPrice * 0.10; // ลด 10%
             finalPrice = totalPrice - discountAmount;
         }   
+
+        // 5. เตรียมข้อมูลทั้งหมดใส่ Object เพื่อส่งไปหน้าถัดไป
         const bookingDetails = {
             hotelName: hotel.title,
             room: selectedRoomData,
@@ -620,15 +641,14 @@ const HotelDetailPage: React.FC = () => {
             numberOfNights: numberOfNights,
             totalPrice: totalPrice,
             mainHotelImage: hotel.imageUrl,    
-            discount: discountAmount,      // ส่งค่าส่วนลด
-            netPrice: finalPrice,          // ส่งราคาสุทธิ
-            promoCodeUsed: promoCode,
-            promotion : promoCode// รูปหลักของโรงแรม (ภาพรวม)
+            discount: discountAmount,      // ค่าส่วนลด
+            netPrice: finalPrice,          // ราคาสุทธิ
+            promoCodeUsed: promoCode
         };
 
+        // 6. สั่งเปลี่ยนหน้าไปที่ /receipt พร้อมส่งข้อมูล (state) ไปด้วย
         navigate('/receipt', {state: {bookingData: bookingDetails}});
     };
-
 
     return (
         <div className="min-h-screen bg-gray-50 p-6 lg:p-12">
@@ -745,8 +765,7 @@ const HotelDetailPage: React.FC = () => {
                                         value={checkInDate}
                                         onChange={(e) => setCheckInDate(e.target.value)}
                                         className="mt-1 block w-full text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm p-2"
-                                        required
-                                    />
+                                        required/>
                                 </div>
 
                                 <div>
@@ -759,8 +778,7 @@ const HotelDetailPage: React.FC = () => {
                                         value={checkOutDate}
                                         onChange={(e) => setCheckOutDate(e.target.value)}
                                         className="mt-1 block w-full text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm p-2"
-                                        required
-                                    />
+                                        required/>
                                 </div>
 
                                 <div>
@@ -774,8 +792,7 @@ const HotelDetailPage: React.FC = () => {
                                         value={guests}
                                         onChange={(e) => setGuests(parseInt(e.target.value))}
                                         className="mt-1 block w-full text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm p-2"
-                                        required
-                                    />
+                                        required/>
                                 </div>
                                 <div>
                                     <label htmlFor="promo" className="block text-sm font-medium text-gray-700">
@@ -787,12 +804,7 @@ const HotelDetailPage: React.FC = () => {
                                         value={promoCode}
                                         onChange={(e) => setPromoCode(e.target.value)}
                                         placeholder="กรอกโค้ด hotelforrang"
-                                        className={`mt-1 block w-full text-gray-700 bg-white border rounded-md shadow-sm p-2 transition-colors ${
-                                            promoCode && isPromoValid 
-                                            ? 'border-green-500 ring-1 ring-green-500' 
-                                            : 'border-gray-300'
-                                        }`} 
-                                    />
+                                        className={`mt-1 block w-full text-gray-700 bg-white border rounded-md shadow-sm p-2 transition-colors ${promoCode && isPromoValid ? 'border-green-500 ring-1 ring-green-500' : 'border-gray-300'}`} />
                                 </div>
                                 <button type="submit"className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 text-sm shadow-lg shadow-green-600/20">
                                     จองทันที
