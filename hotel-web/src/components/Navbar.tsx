@@ -59,22 +59,16 @@ export default function Navbar({
         }
     };
 
-    // ✅ ฟังก์ชันจัดการการคลิกเมนู (รวม Logic เลื่อนหา Footer ไว้ที่นี่)
+    // ฟังก์ชันจัดการการคลิกเมนู 
     const handleNavClick = (e: React.MouseEvent, link: NavLink) => {
-        // 1. ถ้าเป็นปุ่ม Contact ให้เลื่อนลงล่างสุด
+        // ถ้าเป็นปุ่ม Contact ให้เลื่อนลงล่างสุด
         if (link.id === 'contact') {
             e.preventDefault();
-            // วิธีที่ 1: หา ID (แนะนำถ้า Footer มี id="contact")
-            const footer = document.getElementById('contact');
-            if (footer) {
-                footer.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                // วิธีที่ 2: หรือจะเลื่อนไปล่างสุดของจอเลยก็ได้ (Backup plan)
+            // จะเลื่อนไปล่างสุดของจอเลย
                 window.scrollTo({
                     top: document.documentElement.scrollHeight,
                     behavior: 'smooth',
                 });
-            }
         }
         setIsOpen(false);
     };
