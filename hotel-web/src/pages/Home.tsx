@@ -5,6 +5,7 @@ import { ProductCard } from '../components/ProductCard';
 import { MOCK_HOTEL_DATA } from './HotelDetailPage';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
+//array เอาไว้เก็บรูป banner
 const BANNERS = [
     'Banner/banner1.png',
     'Banner/banner2.jpg',
@@ -14,14 +15,14 @@ const BANNERS = [
 
 
 ];
-
-// 💡 สร้าง array ของสินค้าที่ต้องการแสดงผลจากข้อมูล MOCK_HOTEL_DATA
+//แปลงค่าใน Object ออกมาเป็น Array ทำให้ใช้ .Map()ได้
 const displayProducts = Object.values(MOCK_HOTEL_DATA);
 
-// 💡 สร้าง Component สำหรับหน้าแรกโดยเฉพาะ (Home Component)
-// เพื่อให้สามารถใช้ useNavigate ได้
+// 💡 สร้าง Component สำหรับหน้าแรก
 const Home = () => {
+    //ตัวช่วยพาไปหน้าอื่น
     const navigate = useNavigate();
+
     const [currentSlide, setCurrentSlide] = useState(0);
 
     // ❗ ปรับเวลาออโต้สไลด์ถ้าต้องการ

@@ -1,13 +1,15 @@
 import { useNavigate } from "react-router-dom";
 
+// สร้าง component แสดงรายการจังหวัด
 export default function ProvinceList () {
     const navigate = useNavigate();
-
+    
+// กำหนด type ของจังหวัด
     type province = {
         name:string
         image:string
     }
-
+// สร้าง array ของจังหวัดแต่ละตัว
     const provinces: province[] =[
     {name:"Bangkok", image:"./Provinces/Bangkok.webp"},
     {name:"Chonburi", image:"./Provinces/Chonburi.jpg"},
@@ -18,6 +20,8 @@ export default function ProvinceList () {
     {name:"ChiangRai", image:"./Provinces/ChiangRai.jpg"},
     {name:"Chachoengsao", image:"./Provinces/Chachoengsao.jpg"}
 ];
+
+// ฟังก์ชันเมื่อผู้ใช้เลือกจังหวัด จะเปลี่ยนหน้าไปที่ URL ของจังหวัดนั้น
     const handleSelectProvince = (provinceName: string) => {
         navigate(`/province/${provinceName}`);
     }
