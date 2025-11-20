@@ -20,12 +20,14 @@ const displayProducts = Object.values(MOCK_HOTEL_DATA);
 
 // 💡 สร้าง Component สำหรับหน้าแรก
 const Home = () => {
-    //ตัวช่วยพาไปหน้าอื่น
-    const navigate = useNavigate();
 
+// ฟังก์ชันสำหรับเปลี่ยนหน้า
+    const navigate = useNavigate();
+    
+// เก็บสถานะสไลด์ปัจจุบันของ Banner ว่ากำลังแสดง Banner ตัวไหนอยู่
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    // ❗ ปรับเวลาออโต้สไลด์ถ้าต้องการ
+// ทำให้ Banner เลื่อนเองอัตโนมัติทุกๆ 5 วินาที และหยุดเมื่อ component ถูกลบ
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % BANNERS.length);
@@ -33,9 +35,8 @@ const Home = () => {
         return () => clearInterval(interval);
     }, []);
 
-    // ฟังก์ชันจัดการการคลิกและนำทาง
+// ฟังก์ชันเมื่อผู้ใช้เลือกโรงแรม จะเปลี่ยนหน้าไปที่ URL ของโรงแรม
     const handleNavigateToDetails = (hotelId: string) => {
-        // นำทางไปยังเส้นทาง /booking/ ตามด้วย ID ของสินค้า
         navigate(`/hotel/${hotelId}`);
     };
 
@@ -43,19 +44,22 @@ const Home = () => {
         <main className="max-w-7xl mx-auto p-6">
             <section id="home">
                 <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-2">
+                    {/* วนลูปแสดงรูป banner แต่ละตัวจาก array banner */}
                     {BANNERS.map((banner, index) => (
                         <img
-                            key={banner}
-                            src={banner} // ❗ ใส่ path ของ Banner
-                            alt={`Banner ${index + 1}`} // ❗ ใส่คำอธิบายภาพ
-                            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`} />
+                            key={banner} //ใช้ระบุ element ให้ React อัปเดตถูกต้อง
+                            src={banner} 
+                            alt={"Banner โปรโมทหน้าหลัก"}
+                            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`} // แสดงเฉพาะภาพที่กำลังโชว์บน Banner
+                        />
                     ))}
+                    {/* ปุ่มลูกศรซ้าย */}
                     <button onClick={() => setCurrentSlide((prev) => prev === 0 ? BANNERS.length - 1 : prev - 1)} className='absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full'>
-                        <HiChevronLeft size={24} />
+                        <HiChevronLeft size={24} />{/* ไอคอนลูกศรซ้าย */}
                     </button>
-
+                    {/* ปุ่มลูกศรขาว */}
                     <button onClick={() => setCurrentSlide((prev) => (prev + 1) % BANNERS.length)} className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full">
-                        <HiChevronRight size={24} />
+                        <HiChevronRight size={24} />{/* ไอคอนลูกศรขวา */}
                     </button>
                 </div>
 
@@ -75,21 +79,22 @@ const Home = () => {
                     </p>
                 </div>
             </section>
-            
+
+            {/* component ที่นำเข้ามาจากอีกไฟล์หนึ่ง */}
             <ProvinceList />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {/* เปลี่ยนมาใช้ displayProducts ที่ดึงมาจาก MOCK_HOTEL_DATA แทน */}
+                {/* วนลูปข้อมูลโรงแรมแต่ละตัวจาก displayProducts */}
                 {displayProducts.map((p) => (
                     <ProductCard
-                        key={`g-${p.id}`}
-                        imageUrl={p.imageUrl}
-                        title={p.title}
-                        location={p.location}
-                        description={p.description}
-                        amenities={p.amenities}
-                        id={p.id}
-                        onNavigateToDetails={handleNavigateToDetails}
+                        key={`hotel-${p.id}`}                           // id เฉพาะของแต่ละโรงแรม ใช้บอก React ว่าแต่ละกล่องแทนโรงแรมตัวไหน
+                        imageUrl={p.imageUrl}                           //รูปของโรงแรม
+                        title={p.title}                                 // ชื่อโรงแรม
+                        location={p.location}                           // ที่ตั้งโรงแรม
+                        description={p.description}                     // คำอธิบาย
+                        amenities={p.amenities}                         // สิ่งอำนวยความสะดวก
+                        id={p.id}                                       //รหัสโรงแรม
+                        onNavigateToDetails={handleNavigateToDetails}   //เมื่อคลิกจะไปยังหน้ารายละเอียดโรงแรม
                     />
                 ))}
             </div>

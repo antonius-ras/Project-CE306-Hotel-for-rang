@@ -3,37 +3,46 @@ import { ProductCard } from '../components/ProductCard';
 import { MOCK_HOTEL_DATA } from './HotelDetailPage';
 import { FaArrowLeft} from 'react-icons/fa'; 
 
-// 💡 สร้าง array ของสินค้าที่ต้องการแสดงผลจากข้อมูล MOCK_HOTEL_DATA
+//แปลงค่าใน Object ออกมาเป็น Array ทำให้ใช้ .Map()ได้
 const displayProducts = Object.values(MOCK_HOTEL_DATA);
 
+// Component แสดงรายการโรงแรมที่กรองตามคำค้นหา (Search)
 const FilterHotelBySearch = () => {
+
+// ฟังก์ชันสำหรับเปลี่ยนหน้า
     const navigate = useNavigate();
-    // 💡 1a. ดึง "query" (คำค้นหา) จาก URL
+    
+// ดึงค่าที่ผู้ใช้พิมพ์ค้นหามาจาก URL
     const { query } = useParams<{ query: string }>();
 
+// ฟังก์ชันเมื่อผู้ใช้เลือกโรงแรม จะเปลี่ยนหน้าไปที่ URL ของโรงแรม
     const handleNavigateToDetails = (hotelId: string) => {
         navigate(`/hotel/${hotelId}`);
     };
 
     // 💡 1b. ตรรกะการกรองตามคำค้นหา
     const filteredHotels = displayProducts.filter(hotel => {
+
         if (!query) return false;
+        
+//ทำคำค้นหาของผู้ใช้ให้เป็นตัวพิมพ์เล็กทั้งหมด
         const searchTerm = query.toLowerCase();
 
-        // ค้นหาใน: ชื่อโรงแรม, สถานที่, และรายละเอียด
+// เช็คว่าคำค้นหาอยู่ในชื่อโรงแรม, ที่ตั้ง, หรือคำอธิบายหรือไม่
         return (
-            hotel.title.toLowerCase().includes(searchTerm) ||
-            hotel.location.toLowerCase().includes(searchTerm) ||
-            hotel.description.toLowerCase().includes(searchTerm)
+            hotel.title.toLowerCase().includes(searchTerm) ||      // ค้นหาในชื่อโรงแรม
+            hotel.location.toLowerCase().includes(searchTerm) ||    // ค้นหาในจังหวัด/ที่ตั้ง
+            hotel.description.toLowerCase().includes(searchTerm)     // ค้นหาในข้อความอธิบายโรงแรม
         );
     });
 
     return (
         <main className="max-w-7xl mx-auto p-6">
             <button onClick={() => navigate('/')}className="group px-4 py-2 rounded-lg shadow-md text-sm font-semibold transition-all flex items-center gap-2 bg-green-100 text-green-700 hover:bg-green-200 transition-colors" >
-                <FaArrowLeft className="group-hover:translate-x-1 transition-transform" />
+                <FaArrowLeft size={15}/> {/* ไอคอนลูกศร */}
                 กลับไปหน้าหลัก
             </button>
+แสดงรายชื่อการคนหา
             <h1 className="text-xl font-semibold text-cyan-700 mb-6 mt-6">
                 ผลการค้นหาสำหรับ "{query}" ({filteredHotels.length} แห่ง)
             </h1>
@@ -41,14 +50,14 @@ const FilterHotelBySearch = () => {
                 {filteredHotels.length > 0 ? (
                     filteredHotels.map((p) => (
                         <ProductCard
-                            key={`g-${p.id}`}
-                            imageUrl={p.imageUrl}
-                            title={p.title}
-                            location={p.location}
-                            description={p.description}
-                            amenities={p.amenities}
-                            id={p.id}
-                            onNavigateToDetails={handleNavigateToDetails}
+                            key={`hotel-${p.id}`}                               // id เฉพาะของแต่ละโรงแรม ใช้บอก React ว่าแต่ละกล่องแทนโรงแรมตัวไหน
+                            imageUrl={p.imageUrl}                               //รูปของโรงแรม
+                            title={p.title}                                     // ชื่อโรงแรม
+                            location={p.location}                               // ที่ตั้งโรงแรม
+                            description={p.description}                         // คำอธิบาย
+                            amenities={p.amenities}                             // สิ่งอำนวยความสะดวก
+                            id={p.id}                                           //รหัสโรงแรม
+                            onNavigateToDetails={handleNavigateToDetails}       //เมื่อคลิกจะไปยังหน้ารายละเอียดโรงแรม
                         />
                     ))
                 ) : (
