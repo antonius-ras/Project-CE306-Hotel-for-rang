@@ -6,11 +6,9 @@ const Footer = () => {
   return (
     <footer className="bg-white pt-16 pb-8 border-t border-gray-100 font-sans">
       <div className="container mx-auto px-6 lg:px-12">
-        
-        {/* ส่วนบน: Grid 4 คอลัมน์ */}
+        {/* Grid 4 คอลัมน์ */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
-          {/* 1. Brand Info */}
+          {/*logo*/}
           <div className="space-y-4">
             <h3 className="text-3xl font-bold text-green-600 tracking-tight">
               Hotel For Rang
@@ -20,8 +18,7 @@ const Footer = () => {
               ที่พักที่คุณวางใจได้เสมอสำหรับการพักผ่อนที่สมบูรณ์แบบ
             </p>
           </div>
-
-          {/* 2. Quick Links */}
+          {/*Quick Links */}
           <div>
             <h4 className="text-lg font-bold text-gray-800 mb-6 relative inline-block">
               ลิงก์ด่วน
@@ -37,8 +34,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-
-          {/* 3. Contact Info */}
+          {/* Contact */}
           <div>
             <h4 className="text-lg font-bold text-gray-800 mb-6 relative inline-block">
               ติดต่อเรา
@@ -63,8 +59,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-          {/* 4. Newsletter */}
+          {/* Newsletter */}
           <div>
             <h4 className="text-lg font-bold text-gray-800 mb-6">รับข่าวสารโปรโมชั่น</h4>
             <p className="text-sm text-gray-500 mb-4">
@@ -78,7 +73,6 @@ const Footer = () => {
             </form>
           </div>
         </div>
-
         {/* เส้นแบ่ง */}
         <div className="border-t border-gray-100 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4"> 

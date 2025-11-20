@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; // ใช้สำหรับดึงค่าจาก URL และเปลี่ยนหน้า
 import { FaStar, FaMapMarkerAlt } from 'react-icons/fa'; // ไอคอนดาวและหมุดแผนที่
 
-// ... (ข้ามส่วน HOTEL_DATA และ MOCK_HOTEL_DATA ไป เพราะเป็นแค่ข้อมูลดิบ) ...
 // MOCK_HOTEL_DATA คือ Object ที่เก็บข้อมูลโรงแรมทั้งหมด โดยใช้ Key เป็น ID (เช่น '1', '2')
 
 export const HOTEL_DATA = [
